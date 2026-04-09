@@ -1,5 +1,5 @@
-@use './scss/layout';
-@use './scss/stylesheet';
+@use './layout';
+@use './stylesheet';
 
 $bg-color-type1: #fff;
 $bg-color-type2: #000;
@@ -105,7 +105,7 @@ $text-color-type3: #13df4a;
     z-index:0;
   }
   section[class*="section"] {
-    positon:relative;
+    position:relative;
     height:100vh;
     z-index:1;
 
@@ -118,7 +118,7 @@ $text-color-type3: #13df4a;
       display:block;
       width:773px;
       height:556px;
-      background:$bg-color-type1 url(./assets/main/img_bird.png) no-repeat;background-size:100% auto;
+      background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat;background-size:100% auto;
       position:absolute;
       top:280px;
       right:100px;
@@ -233,7 +233,7 @@ $text-color-type3: #13df4a;
     flex-flow:column;
     justify-content:center;
     align-items:center;
-    background:url(./assets/main/bg_sec3.png) no-repeat center fixed;
+    background:url(../assets/main/bg_sec3.png) no-repeat center fixed;
     background-size:cover;
     .tit {
       font-size:120px;
@@ -253,7 +253,7 @@ $text-color-type3: #13df4a;
       display:inline-block;
       width:87px;
       height:87px;
-      background:url(./assets/main/btn_arrow.png) no-repeat 0 0;
+      background:url(../assets/main/btn_arrow.png) no-repeat 0 0;
       background-size:100% auto;
       margin-top:100px;
     }

@@ -1,4 +1,4 @@
-import './main.scss';
+import './scss/main.scss';
 
 const menuBtn = document.querySelector('#btn-menu') as HTMLButtonElement | null;
 const navList = document.querySelector('#nav-list') as HTMLElement | null;
