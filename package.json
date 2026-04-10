@@ -1,4 +1,3 @@
-
 {
   "name": "p2026",
   "private": true,
@@ -13,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sass-embedded": "^1.99.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.4"
