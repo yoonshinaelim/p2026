@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
     "gh-pages": "^6.3.0",
     "sass-embedded": "^1.99.0",
     "typescript": "~6.0.2",
