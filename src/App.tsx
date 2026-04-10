@@ -1,4 +1,4 @@
-import './scripts/common.ts';
+
 
 function App() {
     return (
