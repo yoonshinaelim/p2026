@@ -285,7 +285,6 @@ $text-color-type3: #13df4a;
 }
 
 .footer {
-
   background:#000;
   padding:150px 40px 100px;
   &__info{
@@ -301,6 +300,10 @@ $text-color-type3: #13df4a;
       color:#fff;
       font-size:60px;
       margin-left:40px;
+    }
+    a {
+      color:#fff;
+      font-size:60px;
     }
   }
   &__copy {

@@ -24,3 +24,8 @@
   input, textarea, button {
     font-family:'NotoSans', 'Poppins';
   }
+
+
+  body.fixed {
+    overflow:hidden;
+  }
