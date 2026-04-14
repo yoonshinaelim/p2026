@@ -312,3 +312,198 @@ $text-color-type3: #13df4a;
     color:#fff;
   }
 }
+
+
+// about
+
+.about {
+  &__section1 {
+    position:relative;
+    height:100vh;
+    z-index:1;
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items:center;
+    background:url(../assets/page/bg_about.jpg) no-repeat center fixed;
+    background-size:cover;
+
+    .box {
+      text-align:center;
+      &__tit1 {
+        display:inline-block;
+        color:#fff;
+        font-size:25px;
+        text-transform:uppercase;
+        border-radius:50px;
+        border:1px solid #fff;
+        padding:10px 30px 5px;
+      }
+      &__tit2 {
+        color:#fff;
+        font-size:150px;
+        margin-top:50px;
+      }
+      &__btn {
+        width:87px;
+        height:87px;
+        background:url(../assets/page/btn_scroll.png) no-repeat;
+        margin-top:100px;
+      }
+    }
+  }
+  &__section2 {
+    padding:300px 0;
+    background:#d0f9db;
+    .history {
+      display:flex;
+      flex-flow:row;
+      justify-content:center;
+      background:url(../assets/page/bg_dotted.png) repeat-x;
+      margin:0 40px;
+      dl {
+        flex:1;
+        position:relative;
+        padding-top:60px;
+        text-align:center;
+        dt {
+          font-size:70px;
+          cursor:pointer;
+          &:before {
+            content:'';
+            position:absolute;
+            top:-10px;
+            left:0;
+            right:0;
+            margin:0 auto;
+            display:inline-block;
+            width:20px;
+            height:20px;
+            border-radius:50%;
+            background:#13df4a;
+            border:5px solid #fff;
+          }
+        }
+        dd {
+          position:absolute;
+          text-align:left;
+          display:flex;
+          flex-flow:column;
+          justify-content:center;
+          height:200px;
+          padding:30px;
+          top:-100%;
+          left:0;
+          right:0;
+          margin:-70px auto 0;
+          background:#fff;
+          border-radius:20px;
+          visibility: hidden;
+          opacity:0;
+          transition:all .3s;
+          h3 {
+            color:#00a82d;
+            font-size:26px;
+          }
+          p {
+            font-size:28px;
+            font-family:'NotoSans';
+          }
+        }
+        dd.on {
+          visibility:visible;
+          opacity:1;
+          transition:all .3s; 
+        }
+      }
+    }
+  }
+  &__section3 {
+    padding:0 0 250px 0;
+    background:#d0f9db;
+    .skill {
+      padding:0 40px;
+      margin:0 auto;
+      display:flex;
+      flex-flow:row;
+      gap:50px;
+      li {
+        background:#fff;
+        border-radius:50px;
+        padding:50px;
+        flex:1;
+        span {
+          border-radius:50%;
+          background:#d0f9db;
+          display:inline-block;
+          width:60px;
+          height:60px;
+          line-height:70px;
+          font-size:25px;
+          text-align:center;
+        }
+        h3 {
+          font-size:35px;
+          font-family:'NotoSans';
+          margin-top:50px;
+        }
+        p {
+          font-size:28px;
+          font-family:'NotoSans';
+          margin-top:20px;
+        }
+      }
+    }   
+  }
+  &__section4 {
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    padding:0 0 250px 0;
+    background:#d0f9db;
+    .title1 {
+      text-align:center;
+      font-size:120px;
+      line-height:130px;
+    }
+    .title2 {
+      font-size:60px;
+      text-align:center;
+    }
+    .box {
+      width:1000px;
+      background:#fff;
+      border-radius:50px;
+      text-align:center;
+      padding:100px 0;
+      margin:100px auto 0;
+      h4 {
+        font-size:80px;
+        line-height:80px;
+      }
+      .count {
+        display:flex;
+        flex-flow:row;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        margin-top:50px;
+        span {
+          display:inline-block;
+          font-size:250px;
+          line-height:250px;
+          border-radius:50px;
+          background:#000;
+          padding:70px 30px 0;
+          margin:0 10px;
+          color:#fff;
+        }
+      }
+      p {
+        font-size:40px;
+        line-height:40px;
+        margin-top:50px;
+      }
+    }
+  }
+}
