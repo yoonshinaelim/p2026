@@ -60,13 +60,43 @@ const About = () => {
                 </ol>
             </section>
             <section className="about__section4">
-                <h2 className="title1">PROVEN<br />PROJECT DELIVERY</h2>
-                <h3 className="title2">7+ Years of Experience</h3>
+                <h2 className="tit1">PROVEN<br />PROJECT DELIVERY</h2>
+                <h3 className="tit2">7+ Years of Experience</h3>
                 <div className="box">
                     <h4>Total<br />Contributions:</h4>
                     <div className="count"><span>4</span><span>5</span></div>
                     <p>Focusing more on future<br />achievements than past numbers.</p>
                 </div>
+            </section>
+            <section className="about__section5">
+                <h2 className="tit1">TECHNICAL<br />PROFICIENCY</h2>
+                <div className="tbl">
+                    <dl className="tbl__tr">
+                        <dt>Core</dt>
+                        <dd>HTML5, CSS3, SCSS</dd>
+                    </dl>
+                    <dl className="tbl__tr">
+                        <dt>Script</dt>
+                        <dd>JavaScript, jQuery</dd>
+                    </dl>
+                    <dl className="tbl__tr">
+                        <dt>Interactive</dt>
+                        <dd>GSAP, ScrollTrigger</dd>
+                    </dl>
+                    <dl className="tbl__tr">
+                        <dt>Modern</dt>
+                        <dd>React, TypeScript</dd>
+                    </dl>
+                    <dl className="tbl__tr">
+                        <dt>Tools</dt>
+                        <dd>Photoshop, Figma, Git</dd>
+                    </dl>
+                </div>
+            </section>
+            <section className="about__section6">
+                    <h2 className="tit">Evolving Excellence: <br />Ready for the Next Chapter</h2>
+                    <p className="txt">과거의 성과에 안주하지 않고<br />React와 TypeScript로 무장하여<br />더 높은 기준을 향해 나아갑니다. </p>
+                    
             </section>
         </main>
     )
