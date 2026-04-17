@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom'; 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Main from './Main';
@@ -9,21 +8,20 @@ import Contact from './Contact';
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div id="app" className="App">
                 <article id="wrap">
-                <Header />
+                    <Header />
                     <Routes>
                         <Route path="/" element={<Main />} />
                         <Route path="/About" element={<About />} />
                         <Route path="/Experience" element={<Experience />} />
                         <Route path="/Contact" element={<Contact />} />
-                        <Route path="*" element={<div>페이지를 찾을 수 없습니다!</div>} />
                     </Routes>
-                <Footer />
+                    <Footer />
                 </article>
             </div> 
-        </BrowserRouter>
+        </HashRouter>
     )
-  }
-  export default App
+}
+export default App;
