@@ -1,7 +1,6 @@
 
 // import React, { useState } from 'react';
 import React, { useState, useRef } from "react";
-
 const historyData = [
   { year: '1991', title: 'BIRTH', desc: '1991년 12월 5일 경기도 출생' },
   { year: '2010', title: 'EDUCATION', desc: '디자인 전공 학사 학위 취득 및 산업디자인 학과 졸업' },
@@ -95,8 +94,7 @@ const About = () => {
             </section>
             <section className="about__section6">
                     <h2 className="tit">Evolving Excellence: <br />Ready for the Next Chapter</h2>
-                    <p className="txt">과거의 성과에 안주하지 않고<br />React와 TypeScript로 무장하여<br />더 높은 기준을 향해 나아갑니다. </p>
-                    
+                    <p className="txt">과거의 성과에 안주하지 않고 React와 TypeScript로 무장하여<br />더 높은 기준을 향해 나아갑니다. </p>     
             </section>
         </main>
     )
