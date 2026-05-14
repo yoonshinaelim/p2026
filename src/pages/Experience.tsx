@@ -1,21 +1,33 @@
+import { useNavigate } from 'react-router-dom';
 import { experienceData, ExperienceItem } from '../data/experienceData';
 
 const Experience: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavigate = (id: number) => {
+      navigate(`/experience/${id}`);
+  };
+  const reversedData = [...experienceData].reverse();
     return (
       <main className="experience">
         <h2 className="title">EXPERIENCE</h2>
         <ul className="list">
-          {experienceData.map((item: ExperienceItem) => (
+          {reversedData.map((item: ExperienceItem) => (
             <li key={item.id}>
-              <button type="button" 
+              <button type="button"
+                onClick={() => handleNavigate(item.id)}
                 style={{
-                    backgroundImage: `url(../assets/exp/list${item.id}.jpg)`,
-                    // backgroundRepeat: 'no-repeat',
-                    // backgroundPosition: 'center',
-                    // backgroundSize: 'cover'
+                  backgroundImage: `url(${
+                    new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
+                  })`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
                 }}
               >
-                <span className="title">{item.title1}</span>
+                <span className="box">
+                  <strong className="title1">{item.title1}</strong>
+                  <span className="title2">{item.title2}</span>
+                </span>
               </button>
             </li>
           ))}

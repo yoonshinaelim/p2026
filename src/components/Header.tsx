@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <header className="header">
             <h1 className="header__home"><Link to="/">윤신애림.</Link></h1>
-            <button type="button" id="btn-menu" className={`header__menu ${isActive ? 'on' : ''}`} onClick={toggleMenu} aria-label="메뉴 열기" aria-expanded={isActive}><span className="hidden">메뉴버튼</span></button>
+            <button type="button" id="btn-menu" className={`header__menu ${isActive ? 'on' : ''}`} onClick={toggleMenu} aria-label="메뉴 열기" aria-expanded={isActive}><span className="visually-hidden">메뉴버튼</span></button>
             <nav id="nav-list" className={`nav ${isActive ? 'on' : ''}`}>
                 <ul className="nav__list">
                     <li><Link to="/About" onClick={toggleMenu}>about</Link></li>

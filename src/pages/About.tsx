@@ -19,7 +19,7 @@ const About = () => {
                 <div className="box">
                     <span className="box__tit1">about me</span>
                     <h2 className="box__tit2">윤신애림.</h2>
-                    <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기"><span className="hidden">아래로 내려가기 버튼</span></button>
+                    <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기"><span className="visually-hidden">아래로 내려가기 버튼</span></button>
                 </div>
             </section>
             <section className="about__section2" ref={section2Ref}>
