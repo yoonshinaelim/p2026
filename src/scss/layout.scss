@@ -1,13 +1,23 @@
+@use 'mixin' as *;
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+  html {
+    font-size: 16px;
+  }
   body {
     background:#fff;
-    color: #000;
     line-height: 1.6;
     font-family:'NotoSans', 'Poppins';
+    font-size: 1rem;
+    @include respond-to(md) {
+      font-size: 1.125rem;
+    }
+    @include respond-to(lg) {
+      font-size: 1.25rem;
+    }
   }
   ul, li {
     list-style: none;

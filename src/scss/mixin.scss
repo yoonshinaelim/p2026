@@ -1,0 +1,19 @@
+$breakpoints: (
+  xs: 0,      // 0px - Mobile
+  sm: 36rem,  // 576px - Small tablet
+  md: 48rem,  // 768px - Tablet
+  lg: 62rem,  // 992px - Small desktop
+  xl: 75rem,  // 1200px - Desktop
+  xxl: 87.5rem // 1400px - Large desktop
+);
+
+// Main responsive mixin (Mobile-first approach)
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "#{$breakpoint} is not a valid breakpoint. Available: xs, sm, md, lg, xl, xxl";
+  }
+}

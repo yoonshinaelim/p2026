@@ -1,6 +1,14 @@
-
+import { useNavigate } from 'react-router-dom';
+import { experienceData, ExperienceItem } from '../data/experienceData';
 
 const Main = () => {
+    const navigate = useNavigate();
+    const handleNavigate = (id: number) => {
+      navigate(`/experience/${id}`);
+    };
+    const reversedData = [...experienceData].reverse();
+    const recentProjects = reversedData.slice(0, 10);
+
     return (
         <main className="main">
             <section className="main__section1">
@@ -37,19 +45,30 @@ const Main = () => {
             <section className="main__section3">
                 <h2 className="tit">Good Code,<br />Better Connection</h2>
                 <p className="txt">디자인을 진심으로 이해하는 퍼블리셔를 찾고 계신가요?</p>
-                <a href="#none" className="btn"><span className="hidden">CONTACT 페이지로 이동</span></a>
+                <a href="#none" className="btn"><span className="visually-hidden">CONTACT 페이지로 이동</span></a>
             </section>
             <section className="main__section4">
                 <h2 className="tit">Project Archive</h2>
                 <ul className="lst_project">
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
-                    <li><a href="#none"></a></li>
+                  {recentProjects.map((item: ExperienceItem) => (
+                    <li key={item.id}>
+                      <button
+                        type="button"
+                        onClick={() => handleNavigate(item.id)}
+                        style={{
+                          backgroundImage: `url(${new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href})`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'center',
+                          backgroundSize: 'cover'
+                        }}
+                      >
+                        <span className="box">
+                          <strong className="title1">{item.title1}</strong>
+                          <span className="title2">{item.title2}</span>
+                        </span>
+                      </button>
+                    </li>
+                  ))}
                 </ul>
             </section>
         </main>
