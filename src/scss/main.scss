@@ -167,51 +167,55 @@ $text-color-type3: #13df4a;
   }
   &__section1 {
     position:relative; 
-    &:before {
-      content:'';
-      position:absolute;
-      display:block;
-      width:25rem;
-      height:20rem;
-      top:12rem;
-      right:0.5rem;
-      background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat;background-size:100% auto;
-      z-index:0;
-      @include respond-to(lg) {
-        width:48.3125rem;
-        height:34.75rem;
-        top:17.5rem;
-        right:6.25rem;
-      }
-    }
-    .box {
-      z-index:10;
-      padding:1rem;
-        @include respond-to(lg) {
-         position:relative;
-         padding:2.5rem;
-         bottom:auto;
-        }
-      &__tit {
-        font-size:4.1rem;
+    .title {
+        font-size:4rem;
         line-height:1;
         text-transform:uppercase;
+        padding:1rem;
         @include respond-to(lg) {         
         display:block;
          font-size:14.375rem;
+         padding:2.5rem;
+         white-space: nowrap;
         }
       }
+    .box {
+      position:absolute;
+      width:100%;
+      bottom:0;
+      z-index:10;
+      padding:0 1rem 3rem 1rem;
+        @include respond-to(lg) {
+         width:100%;
+         padding:2.5rem;
+        }
       &__txt {
-        font-size:2.3rem;
         position:relative;
-        display:inline-block;
+        font-size:2rem;
         line-height:1.5;
         font-weight:900;
-        margin-top:25rem;
         @include respond-to(lg) {
           font-size:5rem;
           margin-top:9.375rem;
         }
+        &:before {
+          content:'';
+          display:block;
+          width:22rem;
+          height:20rem;
+          margin:0 auto;
+          background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat;background-size:100% auto;
+          z-index:0;
+          @include respond-to(lg) {
+            position:absolute;
+            width:48.3125rem;
+            height:34.75rem;
+            top:-14rem;
+            right:6rem;
+            left:auto;
+            margin:auto;
+      }
+    }
       }
       .underline{
         position:relative;
@@ -242,6 +246,7 @@ $text-color-type3: #13df4a;
         }
       } 
       &__btn {
+        position:relative;
         display:block;
         width:12rem;
         height:3rem;
@@ -253,7 +258,8 @@ $text-color-type3: #13df4a;
         text-align:center;
         text-transform:uppercase;
         font-weight:900;
-          margin-top:2rem;
+        margin-top:2rem;
+        z-index:1;
         @include respond-to(lg) {
           width:15.1875rem;
           height:3.9375rem;

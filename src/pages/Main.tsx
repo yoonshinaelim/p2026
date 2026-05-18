@@ -12,8 +12,8 @@ const Main = () => {
     return (
         <main className="main">
             <section className="main__section1">
+                <h2 className="title">web<span className='br'></span>publisher</h2>
                 <div className="box">
-                    <h2 className="box__tit">web<span className='br'></span>publisher</h2>
                         <p className="box__txt"><span className="underline"><u>Minimalist Code,</u></span><br /><span className="underline"><u>Maximum Impact.</u></span></p>
                         <button type="button" className="box__btn" onClick={() => navigate('/Experience')}>view more</button>
                     </div>
