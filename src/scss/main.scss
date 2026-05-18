@@ -139,7 +139,10 @@ $text-color-type3: #13df4a;
       font-weight:900;
     }
     li a {
-      font-size:3.5rem;
+      font-size:2.5rem;
+      @include respond-to(md) {
+       font-size:5rem;
+      }
       @include respond-to(lg) {
        font-size:7.5rem;
       }
@@ -166,56 +169,73 @@ $text-color-type3: #13df4a;
 
   }
   &__section1 {
-    position:relative; 
+    position:relative;
+    display:flex;
+    flex-flow:column;
+    justify-content: space-around;
     .title {
-        font-size:4rem;
+        position:relative;
+        font-size:2.8rem;
         line-height:1;
         text-transform:uppercase;
-        padding:1rem;
+        padding:0 1rem;
+        z-index:2;
+        @include respond-to(md) {
+         font-size:6rem;
+         padding:0 2.5rem;
+        }
         @include respond-to(lg) {         
         display:block;
          font-size:14.375rem;
          padding:2.5rem;
          white-space: nowrap;
         }
-      }
-    .box {
-      position:absolute;
+    }
+    .img_bird {
+      position:relative; 
       width:100%;
+      height:20rem;
+      background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat center;background-size: auto 100%;
+      margin:2rem 0;
+      z-index:0;
+      @include respond-to(md) {
+        height:30rem;
+      }
+      @include respond-to(lg) {
+        position:absolute;
+        width:48.3125rem;
+        height:34.75rem;
+        top:17rem;
+        right:8rem;
+        left:auto;
+        margin:auto;
+        }
+    }
+    .box {
       bottom:0;
-      z-index:10;
-      padding:0 1rem 3rem 1rem;
+      padding-bottom:3rem;
+        @include respond-to(md) {
+          width:100%;
+          padding:2rem;
+          }
         @include respond-to(lg) {
          width:100%;
          padding:2.5rem;
         }
-      &__txt {
+
+        &__txt {
         position:relative;
         font-size:2rem;
         line-height:1.5;
         font-weight:900;
+        margin:0 1rem;
+        @include respond-to(md) {
+          font-size:4rem;
+        }
         @include respond-to(lg) {
           font-size:5rem;
           margin-top:9.375rem;
         }
-        &:before {
-          content:'';
-          display:block;
-          width:22rem;
-          height:20rem;
-          margin:0 auto;
-          background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat;background-size:100% auto;
-          z-index:0;
-          @include respond-to(lg) {
-            position:absolute;
-            width:48.3125rem;
-            height:34.75rem;
-            top:-14rem;
-            right:6rem;
-            left:auto;
-            margin:auto;
-      }
-    }
       }
       .underline{
         position:relative;
@@ -230,6 +250,9 @@ $text-color-type3: #13df4a;
           background:$text-color-type3;
           border-radius:1.875rem;
           z-index:0;
+          @include respond-to(md) {
+            height:1.5rem;
+          }
           @include respond-to(lg) {
             height:2.25rem;
           }
@@ -259,14 +282,27 @@ $text-color-type3: #13df4a;
         text-transform:uppercase;
         font-weight:900;
         margin-top:2rem;
+        margin-left:1rem;
         z-index:1;
+        @include respond-to(md) {
+          width:12.5rem;
+          height:3.4375rem;
+          font-size:1.375rem;
+          margin-top:2.5rem;
+        }
+         @include respond-to(lg) {
+          width:15.1875rem;
+          height:3.9375rem;
+          font-size:1.5625rem;
+          margin-top:3.75rem;
+        }
         @include respond-to(lg) {
           width:15.1875rem;
           height:3.9375rem;
           font-size:1.5625rem;
           margin-top:3.75rem;
         }
-      }
+      } 
     }
   }
   &__section2 {
@@ -282,18 +318,28 @@ $text-color-type3: #13df4a;
       display:none;
       z-index:999;
       font-weight:bold;
-      font-size:2.1875rem;
+      font-size:1.25rem;
       text-align:center;
-      align-content: center;
+      @include respond-to(md) {
+        
+        font-size:2rem;
+      }
+      @include respond-to(lg) {
+        font-size:2.5rem;
+      }
      }
      .lst_keyword {
       white-space:nowrap;
       li {
         color:$text-color-type3;
-        font-size:3.125rem;
         display:inline-block;
-        margin:0 1.4375rem;
+        font-size:2.1875rem;
+        margin:auto 0.625rem;
         font-weight:900;
+        @include respond-to(md) {
+          font-size:3.125rem;
+          margin:0 1.4375rem;
+        }
       }
       &.left {
         position:absolute;top:1.25rem;
