@@ -1,19 +1,19 @@
+@use "sass:map";
+
 $breakpoints: (
-  xs: 0,      // 0px - Mobile
-  sm: 36rem,  // 576px - Small tablet
-  md: 48rem,  // 768px - Tablet
-  lg: 62rem,  // 992px - Small desktop
-  xl: 75rem,  // 1200px - Desktop
-  xxl: 87.5rem // 1400px - Large desktop
+  'sm': 576px,   // 소형 스마트폰
+  'md': 768px,   // 태블릿
+  'lg': 1024px,  // 노트북 & 소형 모니터
+  'xl': 1200px   // 대형 모니터
 );
 
-// Main responsive mixin (Mobile-first approach)
+// 2. 미디어쿼리 Mixin
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
-    @warn "#{$breakpoint} is not a valid breakpoint. Available: xs, sm, md, lg, xl, xxl";
+    @error "지정된 브레이크포인트가 없습니다: #{$breakpoint}";
   }
 }

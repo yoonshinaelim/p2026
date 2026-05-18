@@ -13,7 +13,11 @@ $text-color-type3: #13df4a;
 // common
 .br{
   display:block;
+  @include respond-to(lg) {
+    display:inline-block;
+  }
 }
+
 .visually-hidden {
   position: absolute;
   width: 0.0625rem;
@@ -24,14 +28,17 @@ $text-color-type3: #13df4a;
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.App {
+  width:100%;
+  margin:0 auto;
+  overflow:hidden
+}
 // header
 .header {
   position:relative;
   width:100%;
   height:4rem;
-    @include respond-to(lg) {
-      height:3.25rem;
-    }
     @include respond-to(lg) {
     height:4.25rem;
     }
@@ -97,7 +104,6 @@ $text-color-type3: #13df4a;
         @include respond-to(lg) {
           width:2.9375rem;
         }
-        
       }
       &:after {
         transform: rotate(45deg);
@@ -163,14 +169,15 @@ $text-color-type3: #13df4a;
     position:relative; 
     &:before {
       content:'';
-      position:relative;
+      position:absolute;
       display:block;
-      width:20rem;
-      height:17rem;
+      width:25rem;
+      height:20rem;
+      top:12rem;
+      right:0.5rem;
       background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat;background-size:100% auto;
       z-index:0;
       @include respond-to(lg) {
-        position:absolute;
         width:48.3125rem;
         height:34.75rem;
         top:17.5rem;
@@ -178,31 +185,31 @@ $text-color-type3: #13df4a;
       }
     }
     .box {
-      position:relative;
-      padding:1rem;
       z-index:10;
+      padding:1rem;
         @include respond-to(lg) {
+         position:relative;
          padding:2.5rem;
+         bottom:auto;
         }
       &__tit {
-        display:none;
+        font-size:4.1rem;
+        line-height:1;
+        text-transform:uppercase;
         @include respond-to(lg) {         
         display:block;
          font-size:14.375rem;
-        text-transform:uppercase;
-        white-space:nowrap;
-        line-height:1;
-        font-weight:bold;
         }
       }
       &__txt {
-        font-size:2rem;
+        font-size:2.3rem;
         position:relative;
         display:inline-block;
         line-height:1.5;
         font-weight:900;
+        margin-top:25rem;
         @include respond-to(lg) {
-           font-size:5rem;
+          font-size:5rem;
           margin-top:9.375rem;
         }
       }
@@ -211,13 +218,12 @@ $text-color-type3: #13df4a;
         &:before {
           content:'';
           position:absolute;
-          height:1rem;
+          height:0.8rem;
           width:100%;
           display:block;
           top:50%;
           transform:translateY(-50%);
           background:$text-color-type3;
-          z-index:0;
           border-radius:1.875rem;
           z-index:0;
           @include respond-to(lg) {
@@ -228,23 +234,32 @@ $text-color-type3: #13df4a;
           position:relative;
           text-decoration:none;
           z-index:1;
-          left:0.625rem;
           font-weight:900;
+          left:0.4rem;
+          @include respond-to(lg) {
+          left:0.625rem;
+          }
         }
       } 
       &__btn {
         display:block;
-        width:15.1875rem;
-        height:3.9375rem;
-        font-size:1.5625rem;
-        background:#000;
-        margin-top:3.75rem;
+        width:12rem;
+        height:3rem;
+        font-size:1.2rem;
+        line-height:1;
         border-radius:3.125rem;
         color:#fff;
-        line-height:4.1875rem;
+        background:#000;
         text-align:center;
         text-transform:uppercase;
         font-weight:900;
+          margin-top:2rem;
+        @include respond-to(lg) {
+          width:15.1875rem;
+          height:3.9375rem;
+          font-size:1.5625rem;
+          margin-top:3.75rem;
+        }
       }
     }
   }
