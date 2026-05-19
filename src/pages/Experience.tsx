@@ -13,22 +13,24 @@ const Experience: React.FC = () => {
         <ul className="list">
           {reversedData.map((item: ExperienceItem) => (
             <li key={item.id}>
-              <button type="button"
-                onClick={() => handleNavigate(item.id)}
-                style={{
-                  backgroundImage: `url(${
-                    new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
-                  })`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover'
-                }}
-              >
-                <span className="box">
-                  <strong className="title1">{item.title1}</strong>
-                  <span className="title2">{item.title2}</span>
-                </span>
-              </button>
+              <div className="button_box">
+                <button type="button"
+                  onClick={() => handleNavigate(item.id)}
+                  style={{
+                    backgroundImage: `url(${
+                      new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
+                    })`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center',
+                      backgroundSize: 'cover'
+                  }}
+                >
+                  <span className="box">
+                    <strong className="title1">{item.title1}</strong>
+                    <span className="title2">{item.title2}</span>
+                  </span>
+                </button>
+              </div>
             </li>
           ))}
         </ul>

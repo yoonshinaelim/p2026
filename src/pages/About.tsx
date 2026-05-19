@@ -1,6 +1,6 @@
 
 // import React, { useState } from 'react';
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 const historyData = [
   { year: '1991', title: 'BIRTH', desc: '1991년 12월 5일 경기도 출생' },
   { year: '2010', title: 'EDUCATION', desc: '디자인 전공 학사 학위 취득 및 산업디자인 학과 졸업' },
@@ -9,7 +9,21 @@ const historyData = [
 ];
 const About = () => {
     const [hoveredYear, setHoveredYear] = useState<string | null>(null);
+    const [isMobileView, setIsMobileView] = useState<boolean>(false);
     const section2Ref = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+      const mediaQuery = window.matchMedia('(max-width: 768px)');
+      const updateView = () => setIsMobileView(mediaQuery.matches);
+      updateView();
+      mediaQuery.addEventListener?.('change', updateView);
+      mediaQuery.addListener?.(updateView);
+      return () => {
+        mediaQuery.removeEventListener?.('change', updateView);
+        mediaQuery.removeListener?.(updateView);
+      };
+    }, []);
+
     const scrollToSection = () => {
         section2Ref.current?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -31,7 +45,7 @@ const About = () => {
                     onMouseLeave={() => setHoveredYear(null)}
                     >
                         <dt>{item.year}</dt>
-                        <dd className={hoveredYear === item.year ? 'on' : '' }>
+                        <dd className={isMobileView || hoveredYear === item.year ? 'on' : '' }>
                             <h3>{item.title}</h3>
                             <p>{item.desc}</p>
                         </dd>
@@ -94,7 +108,7 @@ const About = () => {
             </section>
             <section className="about__section6">
                     <h2 className="tit">Evolving Excellence: <br />Ready for the Next Chapter</h2>
-                    <p className="txt">과거의 성과에 안주하지 않고 React와 TypeScript로 무장하여<br />더 높은 기준을 향해 나아갑니다. </p>     
+                    <p className="txt">과거의 성과에 안주하지 않고 React와 TypeScript로 무장하여 더 높은 기준을 향해 나아갑니다. </p>     
             </section>
         </main>
     )

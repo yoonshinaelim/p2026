@@ -45,8 +45,10 @@ const Main = () => {
             </section>
             <section className="main__section3">
                 <h2 className="tit">Good Code,<br />Better Connection</h2>
-                <p className="txt">디자인을 진심으로 이해하는 퍼블리셔를 찾고 계신가요?</p>
-                <a href="#none" className="btn"><span className="visually-hidden">CONTACT 페이지로 이동</span></a>
+                <p className="txt">디자인을 진심으로 이해하는 <span className="br"></span>퍼블리셔를 찾고 계신가요?</p>
+                <button type="button" className="btn" onClick={() => navigate('/Contact')}>
+                    <span className="visually-hidden">CONTACT 페이지로 이동</span>
+                </button>
             </section>
             <section className="main__section4">
                 <h2 className="tit">Project Archive</h2>
