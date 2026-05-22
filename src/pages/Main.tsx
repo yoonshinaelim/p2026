@@ -17,15 +17,13 @@ const Main = () => {
     const keywordLeftRef = useRef<HTMLUListElement | null>(null);
     const keywordRightRef = useRef<HTMLUListElement | null>(null);
     const section3TitRef = useRef<HTMLHeadingElement | null>(null);
-    const section1Title = 'webpublisher';
-    const section3TitleLine1 = 'Good Code,';
-    const section3TitleLine2 = 'Better Connection';
-    const section4Title = 'Project Archive';
     const section3TextRef = useRef<HTMLElement | null>(null);
     const section3BtnRef = useRef<HTMLElement | null>(null);
     const section4TitRef = useRef<HTMLElement | null>(null);
     const section4Ref = useRef<HTMLElement | null>(null);
-    
+    const section1Title = 'webpublisher';
+    const section3Title = 'Pixel Perfect';
+    const section4Title = 'Projects';
     // 💡 HTMLUListElement 타입으로 정교하게 지정
     const lstProjectRef = useRef<HTMLUListElement | null>(null);
 
@@ -62,21 +60,9 @@ const Main = () => {
       // --- Section 1 애니메이션 ---
       const tl = gsap.timeline();
       tl.set(chars, { opacity: 0, y: 50 });
+      tl.to(chars, {opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.05});
       tl.set(imageInner, { opacity: 0, y: 30, scale: 0 });
-      tl.to(chars, {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: 'power2.out',
-        stagger: 0.05,
-      });
-      tl.to(imageInner, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-      }, '>-0.1');
+      tl.to(imageInner, {opacity: 1, y: 0, scale: 1, duration: 0.6,ease: 'power2.out'}, '>-0.1');
 
       // --- Section 2 애니메이션 (Pin & 가로 이동) ---
       const sectionPin = ScrollTrigger.create({
@@ -247,14 +233,8 @@ const Main = () => {
             
             <section className="main__section3">
                 <h2 className="tit" ref={section3TitRef}>
-                  {section3TitleLine1.split('').map((char, index) => (
+                  {section3Title.split('').map((char, index) => (
                     <span key={`l1-${index}`} className="title-letter">
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
-                  <br />
-                  {section3TitleLine2.split('').map((char, index) => (
-                    <span key={`l2-${index}`} className="title-letter">
                       {char === ' ' ? '\u00A0' : char}
                     </span>
                   ))}

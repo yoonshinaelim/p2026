@@ -1,6 +1,6 @@
 
-// import React, { useState } from 'react';
 import React, { useState, useRef, useEffect } from "react";
+import gsap from 'gsap';
 const historyData = [
   { year: '1991', title: 'BIRTH', desc: '1991년 12월 5일 경기도 출생' },
   { year: '2010', title: 'EDUCATION', desc: '디자인 전공 학사 학위 취득 및 산업디자인 학과 졸업' },
@@ -11,10 +11,19 @@ const About = () => {
     const [hoveredYear, setHoveredYear] = useState<string | null>(null);
     const [isMobileView, setIsMobileView] = useState<boolean>(false);
     const section2Ref = useRef<HTMLElement>(null);
+    const section1titleRef = useRef<HTMLHeadingElement | null>(null);
+    const sectionTitle = "윤신애림.";
 
     useEffect(() => {
       const mediaQuery = window.matchMedia('(max-width: 768px)');
       const updateView = () => setIsMobileView(mediaQuery.matches);
+      const sectionTitleChar = section1titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+      if(!sectionTitleChar?.length) return;
+
+      const tl = gsap.timeline();
+      tl.set(sectionTitleChar, {opacity:0, y : 50});
+      tl.to(sectionTitleChar, {opacity:1, y:0, duration: 0.4, ease:'power2.out', stagger:0.05})
+
       updateView();
       mediaQuery.addEventListener?.('change', updateView);
       mediaQuery.addListener?.(updateView);
@@ -22,6 +31,8 @@ const About = () => {
         mediaQuery.removeEventListener?.('change', updateView);
         mediaQuery.removeListener?.(updateView);
       };
+
+      
     }, []);
 
     const scrollToSection = () => {
@@ -32,7 +43,14 @@ const About = () => {
             <section className="about__section1">
                 <div className="box">
                     <span className="box__tit1">about me</span>
-                    <h2 className="box__tit2">윤신애림.</h2>
+                    <h2 className="box__tit2" ref={section1titleRef}>
+                        {sectionTitle.split('').map((char, index) => (
+                            <span key={index} className="title-letter">
+                                {char === ' ' ? '\u00A0' : char }
+                            </span>
+
+                        ))}
+                    </h2>
                     <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기"><span className="visually-hidden">아래로 내려가기 버튼</span></button>
                 </div>
             </section>
