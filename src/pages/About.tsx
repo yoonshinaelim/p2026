@@ -30,16 +30,14 @@ const About = () => {
       return () => {
         mediaQuery.removeEventListener?.('change', updateView);
         mediaQuery.removeListener?.(updateView);
-      };
-
-      
+      };      
     }, []);
 
     const scrollToSection = () => {
         section2Ref.current?.scrollIntoView({ behavior: 'smooth' });
     };
     return (
-        <main className="about">
+        <main className="about round">
             <section className="about__section1">
                 <div className="box">
                     <span className="box__tit1">about me</span>

@@ -21,7 +21,7 @@ const Contact = () => {
     }),[];
 
     return (
-        <main className="contact">
+        <main className="contact round">
             <div className="contact__title">
                 <h2 className="tit" ref={titleRef}>
                     {contactTitleLine1.split('').map((char, index) => (

@@ -194,7 +194,7 @@ const Main = () => {
     }, [recentProjects]); // 데이터 변화 대응
 
     return (
-        <main className="main">
+        <main className="main round">
             <section className="main__section1">
                 <h2 className="title" ref={titleRef}>
                   {section1Title.split('').map((char, index) => (

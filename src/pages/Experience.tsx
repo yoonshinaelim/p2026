@@ -1,14 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import { experienceData, ExperienceItem } from '../data/experienceData';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Experience: React.FC = () => {
 const navigate = useNavigate();
 const handleNavigate = (id: number) => {
     navigate(`/experience/${id}`);
 };
+const PAGE_SIZE = 6;
 const reversedData = [...experienceData].reverse();
+const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+const visibleData = reversedData.slice(0, visibleCount);
+const hasMore = visibleCount < reversedData.length;
 
 const titleRef=useRef<HTMLHeadElement | null>(null);
 const expTitle = "EXPERIENCE";
@@ -24,7 +28,7 @@ useEffect(() =>{
 
 
     return (
-      <main className="experience">
+      <main className="experience round">
         <h2 className="title" ref={titleRef}>
           {expTitle.split('').map((char, index) => (
             <span key={index} className="title-letter">
@@ -33,19 +37,19 @@ useEffect(() =>{
           ))}
         </h2>
         <ul className="list">
-          {reversedData.map((item: ExperienceItem) => (
+          {visibleData.map((item: ExperienceItem) => (
             <li key={item.id}>
               <div className="button_box">
-                <button type="button"
+                <button
+                  type="button"
                   onClick={() => handleNavigate(item.id)}
-                  style={{
-                    backgroundImage: `url(${
-                      new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
-                    })`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'cover'
-                  }}
+                  style={
+                    {
+                      '--exp-bg': `url(${
+                        new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
+                      })`,
+                    } as React.CSSProperties
+                  }
                 >
                   <span className="box">
                     <strong className="title1">{item.title1}</strong>
@@ -56,6 +60,11 @@ useEffect(() =>{
             </li>
           ))}
         </ul>
+        {hasMore && (
+          <button type="button" className="experience__more" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
+            more+
+          </button>
+        )}
       </main>
     );
   };

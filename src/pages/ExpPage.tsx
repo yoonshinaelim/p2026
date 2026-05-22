@@ -18,7 +18,7 @@ const ExpPage: React.FC = () => {
         return new URL(`../assets/exp/page/bg${itemId}.jpg`, import.meta.url).href;
     };
     return (
-        <main className="expPage">
+        <main className="expPage round">
             <h2 className="title1">{selectedItem.title1}</h2>
                 <h3 className="title2">{selectedItem.title2}</h3>
                 <ul className="info">
@@ -27,7 +27,7 @@ const ExpPage: React.FC = () => {
                 </ul>
                 <p className="description">{selectedItem.description}</p>
                 <div className="img"><img src={getImageUrl(selectedItem.id)}  alt={selectedItem.title1} /></div>
-                <button type="button" className="backBtn" onClick={() => navigate(-1)} className="btn">목록으로 돌아가기</button>
+                <button type="button" className="backBtn" onClick={() => navigate(-1)} className="btn">BACK</button>
         </main>
     );
 };
