@@ -642,10 +642,14 @@ $text-color-type3: #13df4a;
     flex-flow:column;
     justify-content:center;
     align-items:center;
-    background:url(../assets/page/bg_about.jpg) no-repeat center fixed;
+    background:url(../assets/page/bg_about.jpg);
+    background-attachment:scroll;
+    background-repeat: no-repeat;
+
     background-size:auto 100%;
     @include respond-to(lg) {
       background-size:cover;
+      background-attachment:fixed;
     }
     .box {
       text-align:center;
