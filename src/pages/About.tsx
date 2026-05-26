@@ -30,7 +30,7 @@ const About = () => {
       return () => {
         mediaQuery.removeEventListener?.('change', updateView);
         mediaQuery.removeListener?.(updateView);
-      };      
+      };
     }, []);
 
     const scrollToSection = () => {
