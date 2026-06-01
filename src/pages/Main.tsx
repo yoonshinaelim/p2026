@@ -93,7 +93,7 @@ const Main = () => {
           scrub: true,
         },
       });
-      const circleScaleTween = gsap.to(circle, {
+      const circleScaleTween = gsap.timeline({
         scale: 35,
         transformOrigin: 'center center',
         ease: 'none',
@@ -104,6 +104,8 @@ const Main = () => {
           scrub: true,
         },
       });
+      circleScaleTween.fromTo(circle, { scale: 0 }, { scale: 35, ease: 'none', scrollTrigger: { trigger: section2, start: 'top top', end: 'bottom top', scrub: true } });
+
       const txtTween = gsap.timeline({
         scrollTrigger: {
           trigger: section2,
@@ -131,8 +133,7 @@ const Main = () => {
       section3Tween.fromTo(section3Chars, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 })
       .fromTo(section3Text, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 })
       .fromTo(section3Btn, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
-
-      // --- Section 4 애니메이션 (ScrollTrigger + Draggable 동기화) ---
+      
       const section4Tween = gsap.timeline({
         scrollTrigger: {
           trigger: section4Tit,
@@ -187,10 +188,10 @@ const Main = () => {
         txtTween.scrollTrigger?.kill();
         section3Tween.scrollTrigger?.kill();
         section4Tween.scrollTrigger?.kill();
-        lstProjectST.kill(); // 수정된 가로스크롤 트리거 해제
-        if (projectDrag[0]) projectDrag[0].kill(); // 드래그 해제
+        lstProjectST.kill(); 
+        if (projectDrag[0]) projectDrag[0].kill();
       };
-    }, [recentProjects]); // 데이터 변화 대응
+    }, [recentProjects]); 
 
     return (
         <main className="main round">

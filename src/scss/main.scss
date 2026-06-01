@@ -550,7 +550,7 @@ $text-color-type3: #13df4a;
     flex-flow:column;
     justify-content:space-evenly;
     .tit {
-      font-size:3rem;
+      font-size:2.5rem;
       text-transform:uppercase;
       text-align:center;
       font-weight:900;
@@ -785,10 +785,10 @@ $text-color-type3: #13df4a;
     }
   }
   &__section3 {
-    padding:0 0 3rem 0;
+    padding:3rem 0;
     background:$bg-color-type3;
     @include respond-to(lg) {
-      padding:0 0 15.625rem 0;
+      padding:15.625rem 0;
     }
     .skill {
       padding:0 1rem;
@@ -861,21 +861,18 @@ $text-color-type3: #13df4a;
     .tit1 {
       text-align:center;
       font-size:2.5rem;
-      line-height:1.3;
       font-weight:900;
+      overflow:hidden;
       @include respond-to(md) {
-       font-size:5rem;
-      }
-      @include respond-to(lg) {
        font-size:7.5rem;
+       line-height:1;
       }
     }
     .tit2 {
       font-size:1.25rem;
       text-align:center;
       font-weight:bold;
-      line-height:1.2;
-      margin-top:2rem;
+      margin-top:1rem;
       @include respond-to(md) {
         font-size:2.5rem;
         margin-top:3.125rem;
@@ -891,8 +888,8 @@ $text-color-type3: #13df4a;
       padding:2rem 0;
       margin:2rem 1rem 0;
        @include respond-to(lg) {
-        width:62.5rem;
-        padding:6.25rem 0;
+        width:45rem;
+        padding:4rem 0;
         margin:6.25rem auto 0;
       }
       h4 {
@@ -900,48 +897,119 @@ $text-color-type3: #13df4a;
         line-height:1.2;
         font-weight:900;
         @include respond-to(md) {
-          font-size:5.5rem;
-        }
-        @include respond-to(lg) {
-          font-size:6.5rem;
+          font-size:2.5rem;
         }
       }
+      // .count {
+      //   display:flex;
+      //   flex-flow:row;
+      //   align-items:center;
+      //   justify-content:center;
+      //   gap:0.5rem;
+      //   margin-top:1rem;
+      //   @include respond-to(md) {
+      //    gap:1rem;
+      //    margin-top:3.125rem;
+      //   }
+      //   span {
+      //     display:inline-block;
+      //     width:6rem;
+      //     height:10rem;
+      //     line-height:1;
+      //     font-size:5rem;
+      //     border-radius:2rem;
+      //     background:#000;
+      //     color:#fff;
+      //     font-weight:bold;
+      //     @include respond-to(md) {
+      //       font-size:10rem;
+      //       width: 10rem;
+      //       height:14rem;
+      //       line-height:17rem;
+      //     }
+      //   }
+      // }
+
       .count {
-        display:flex;
-        flex-flow:row;
-        align-items:center;
-        justify-content:center;
+        position:relative;
+        margin:2rem auto 0;
+        display: flex;
+        flex-flow: row;
+        width:12rem;
+        font-size: 4rem; /* 원하는 크기로 조절 */
+        font-weight: bold;
+        height: 10rem;  /* 숫자 한 개가 보일 높이 지정 */
+        overflow: hidden; /* 위아래로 넘어가는 숫자 숨기기 */
+        line-height: 11rem;
+        color:#fff;
         gap:0.5rem;
-        margin-top:1rem;
-        @include respond-to(md) {
-         gap:2rem;
-        margin-top:3.125rem;
-        }
-        span {
-          display:inline-block;
-          width:6rem;
+        line-height:11rem;
+       @include respond-to(md) {
+        width:14rem;
+        font-size:6rem;
+        line-height:11.5rem;
+        height:10rem;
+        margin:3rem auto 0;
+      
+       }
+       &:before {
+          content: '';
+          display:block;
+          position: absolute;
+          width: 5.8rem;
           height:10rem;
-          line-height:12rem;
-          font-size:5rem;
+          top:0;
+          left:0;
+          background: #000;
+          z-index:0;
           border-radius:2rem;
-          background:#000;
-          color:#fff;
-          font-weight:bold;
           @include respond-to(md) {
-            font-size:15.625rem;
-            width: 12rem;
-            height:20rem;
-            line-height:25rem;
+            width: 6.8rem;
           }
+
+
+       }
+       &:after {
+          content: '';
+          display:block;
+          position: absolute;
+          width: 5.8rem;
+          height:10rem;
+          top:0;
+          right:0;
+          background: #000;
+          z-index:0;
+          border-radius:2rem;
+          @include respond-to(md) {
+            width: 6.8rem;
+          }
+
+       }
+    }
+
+    /* 각 자릿수를 감싸는 슬롯 */
+    .slot-column {
+      display: flex;
+      flex-direction: column;
+      width:5.8rem;
+      transition: transform 2s cubic-bezier(0.1, 0.8, 0.3, 1); /* 파칭코처럼 서서히 멈추는 느낌 */
+      z-index:1;
+        @include respond-to(md) {
+          width:6.8rem;
         }
-      }
+    }
+
+    .slot-number {
+      height: 10rem;
+      text-align: center;
+    }
       p {
         font-size:1rem;
         line-height:1.2;
         margin-top:2rem;
         font-weight:bold;
         @include respond-to(md) {
-          font-size:2.5rem;
+          font-size:2rem;
         margin-top:3.125rem;
         }
 
@@ -961,9 +1029,10 @@ $text-color-type3: #13df4a;
       height:14rem;
       background:url(../assets/page/img_bird.png) no-repeat center;
       background-size: auto 100%;
+      animation: birdSwing 3s steps(1, end) infinite;
       @include respond-to(md) {
-        width:30rem;
-        height:22rem;
+        width:40rem;
+        height:28rem;
         margin:0 auto;
       }
       @include respond-to(lg) {
@@ -973,12 +1042,13 @@ $text-color-type3: #13df4a;
     }
     .tit1 {
         font-size:2.5rem;
-        line-height:1.2;
         text-align:center;
         margin-top:2rem;
         font-weight:900;
+        overflow:hidden;
         @include respond-to(md) {
           font-size:7.5rem;
+          line-height:1;
           margin-top:12.5rem;
         }
     }
@@ -1025,25 +1095,23 @@ $text-color-type3: #13df4a;
     }
   }
   &__section6 {
-    padding:4rem 0 2rem;
+    padding:5rem 0;
     background: $bg-color-type4;
     text-align:center;
     display:flex;
     flex-flow:column;
     justify-content:center;
     @include respond-to(md) {
-      padding:12rem 0 10rem;
+      padding:10rem 0;
     }
     .tit {
       color:#fff;
-      font-size:1.5rem;
-      line-height:1.3;
+      font-size:2.5rem;
       margin:0 1rem;
+      overflow:hidden;
       @include respond-to(md){
-        font-size:3.5rem;
-      }
-      @include respond-to(lg){
-        font-size:4.375rem;
+        font-size:5rem;
+        line-height:1.3;
       }
     }
     .txt {
@@ -1051,7 +1119,7 @@ $text-color-type3: #13df4a;
       font-size:1rem;
       font-family:'NotoSans';
       font-weight:bold;
-      margin:2rem 1rem 0;
+      margin:1rem 1rem 0;
       line-height:1.6;
       @include respond-to(md){
         font-size:1.5rem;

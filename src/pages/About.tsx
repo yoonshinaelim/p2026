@@ -1,37 +1,185 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import gsap from 'gsap';
-const historyData = [
-  { year: '1991', title: 'BIRTH', desc: '1991년 12월 5일 경기도 출생' },
-  { year: '2010', title: 'EDUCATION', desc: '디자인 전공 학사 학위 취득 및 산업디자인 학과 졸업' },
-  { year: '2014', title: 'CAREER', desc: '7년 차 웹 퍼블리셔로서의 실무 경력 구축' },
-  { year: '2021', title: 'LIFE EVENT', desc: '두 아이의 출산과 육아를 통해 얻은 삶의 균형과 새로운 동력' },
-];
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const About = () => {
+
+    
+    
     const [hoveredYear, setHoveredYear] = useState<string | null>(null);
     const [isMobileView, setIsMobileView] = useState<boolean>(false);
     const section2Ref = useRef<HTMLElement>(null);
+    const section4Ref = useRef<HTMLElement>(null);
+    const section5Ref = useRef<HTMLElement>(null);
+    const section6Ref = useRef<HTMLElement>(null);
     const section1titleRef = useRef<HTMLHeadingElement | null>(null);
+    const section4titleRef = useRef<HTMLHeadingElement | null>(null);
+    const section4title2Ref = useRef<HTMLHeadingElement | null>(null);
+    const section4boxRef = useRef<HTMLHeadingElement | null>(null);
+    const section5titleRef = useRef<HTMLHeadingElement | null>(null);
+    const section5tableRef = useRef<HTMLHeadingElement | null>(null);
+    const section6titleRef = useRef<HTMLHeadingElement | null>(null);
+    const section6textRef = useRef<HTMLHeadingElement | null>(null);
     const sectionTitle = "윤신애림.";
+    const section4Title = ["PROVEN", "DELIVERY"];
+    const section5Title = ["TECHNICAL", "PROFICIENCY"];
+    const section6Title = "READY FOR NEXT";
+  
+    // 최종 목표 숫자 (4, 5)
+    const targetNumbers = [4, 5]; 
+  
+    // 애니메이션 시작 여부를 관리하는 상태
+    const [isAnimate, setIsAnimate] = useState(false);
 
+    // 0부터 9까지의 배열 생성
+    const digits = Array.from({ length: 10 }, (_, i) => i);
     useEffect(() => {
+      gsap.registerPlugin(ScrollTrigger);
+      
       const mediaQuery = window.matchMedia('(max-width: 768px)');
       const updateView = () => setIsMobileView(mediaQuery.matches);
+      const section4 = section4titleRef.current;
+      const sectiontitle2 = section4title2Ref.current;
+      const section4box = section4boxRef.current;
+      const section5 = section5titleRef.current;
+      const section5table = section5tableRef.current;
+      const section6 = section6titleRef.current;
+      const section6text = section6textRef.current;
       const sectionTitleChar = section1titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
-      if(!sectionTitleChar?.length) return;
+      const sectionTitle4Char = section4titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+      const sectionTitle5Char = section5titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+      const sectionTitle6Char = section6titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+
+      if(!sectionTitleChar?.length  || !sectionTitle4Char?.length || !sectionTitle5Char?.length || !sectionTitle6Char?.length ) return;
 
       const tl = gsap.timeline();
       tl.set(sectionTitleChar, {opacity:0, y : 50});
       tl.to(sectionTitleChar, {opacity:1, y:0, duration: 0.4, ease:'power2.out', stagger:0.05})
 
+      const section4Tween = gsap.timeline({
+            scrollTrigger: {
+                trigger: section4,         // 트리거 대상을 박스로 변경!
+                start: 'top 60%',             // 박스 상단이 뷰포트의 60% 높이에 오면 실행
+                end: 'bottom top',
+                toggleActions: 'play none none none',
+            }
+        });
+      section4Tween.fromTo(sectionTitle4Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+      section4Tween.fromTo(sectiontitle2, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+      section4Tween.fromTo(section4box, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+         // ★ [동시 실행 + 각각 다른 속도와 랜덤 롤링 효과]
+        // 첫 번째 숫자 (4) 설정: 0.12초 속도로 3바퀴 돌고 안착
+        const rollDuration1 = 0.12; 
+        const repeatCount1 = 3;    
+
+        // 두 번째 숫자 (5) 설정: 0.15초 속도로 5바퀴 돌고 안착 (더 오래 굴러감)
+        const rollDuration2 = 0.15; 
+        const repeatCount2 = 5;    
+
+        // 루프가 돌 때마다 내부 숫자를 뒤섞는 공통 함수
+        const shuffleColumn = (column: Element) => {
+            const spans = Array.from(column.children);
+            for (let i = spans.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                column.appendChild(spans[j]);
+            }
+        };
+
+        // 정지하기 전 원래 순서(0~9)로 복구하는 공통 함수
+        const resetColumnOrder = (column: Element) => {
+            const spans = Array.from(column.children) as HTMLElement[];
+            spans.sort((a, b) => parseInt(a.textContent || '0') - parseInt(b.textContent || '0'));
+            spans.forEach(span => column.appendChild(span));
+        };
+
+        // 메인 타임라인에 첫 번째 열 애니메이션 추가
+        section4Tween.add(
+            gsap.fromTo(".slot-column:nth-child(1)", 
+                { y: "0rem" },
+                {
+                    y: `-${9 * 10}rem`, 
+                    duration: rollDuration1,
+                    ease: "none",
+                    repeat: repeatCount1,
+                    onRepeat: function() { shuffleColumn(this.targets()[0]); },
+                    onComplete: function() {
+                        const col = this.targets()[0];
+                        resetColumnOrder(col);
+                        gsap.fromTo(col, { y: "0rem" }, {
+                            y: `-${targetNumbers[0] * 10}rem`,
+                            duration: 1.2,
+                            ease: "power4.out"
+                        });
+                    }
+                }
+            ),
+            "-=0.3" // 박스 등장 애니메이션 끝나기 전에 동시 출발
+        );
+
+        // 메인 타임라인에 두 번째 열 애니메이션 추가 (같은 타이밍에 출발 시킴)
+        section4Tween.add(
+            gsap.fromTo(".slot-column:nth-child(2)", 
+                { y: "0rem" },
+                {
+                    y: `-${9 * 10}rem`, 
+                    duration: rollDuration2,
+                    ease: "none",
+                    repeat: repeatCount2, // 5바퀴로 더 많이 돌게 함
+                    onRepeat: function() { shuffleColumn(this.targets()[0]); },
+                    onComplete: function() {
+                        const col = this.targets()[0];
+                        resetColumnOrder(col);
+                        gsap.fromTo(col, { y: "0rem" }, {
+                            y: `-${targetNumbers[1] * 10}rem`,
+                            duration: 1.5, // 멈출 때도 조금 더 묵직하게 멈춤
+                            ease: "power4.out"
+                        });
+                    }
+                }
+            ),
+            "<" // 바로 앞선 트윈(첫 번째 열)과 "동시에 시작"하라는 뜻의 GSAP 타임라인 기호
+        );
+      const section5Tween = gsap.timeline({
+        scrollTrigger: {
+          trigger: section5,
+          start: 'top 50%',
+          end: 'bottom top',
+          toggleActions: 'play none none none',
+        },
+      });
+      section5Tween.fromTo(sectionTitle5Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+      section5Tween.fromTo(section5table, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+
+      const section6Tween = gsap.timeline({
+        scrollTrigger: {
+          trigger: section6,
+          start: 'top 50%',
+          end: 'bottom top',
+          toggleActions: 'play none none none',
+        },
+      });
+      section6Tween.fromTo(sectionTitle6Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });   
+      section6Tween.fromTo(section6text, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });   
+
+      // 컴포넌트가 로드되거나, 스크롤 이벤트를 통해 이 섹션이 보일 때 실행하도록 설정 가능
+    // 여기서는 컴포넌트가 마운트되고 200ms 후에 자동으로 굴러가도록 했습니다.
+   
+
       updateView();
       mediaQuery.addEventListener?.('change', updateView);
       mediaQuery.addListener?.(updateView);
+      
       return () => {
         mediaQuery.removeEventListener?.('change', updateView);
         mediaQuery.removeListener?.(updateView);
+        
+        section4Tween.kill();
+        section5Tween.kill();
+        section6Tween.kill();
       };
-    }, []);
+    
+    }, []); 
 
     const scrollToSection = () => {
         section2Ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -50,23 +198,6 @@ const About = () => {
                         ))}
                     </h2>
                     <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기"><span className="visually-hidden">아래로 내려가기 버튼</span></button>
-                </div>
-            </section>
-            <section className="about__section2" ref={section2Ref}>
-            <div className="history">
-                {historyData.map((item) => (
-                    <dl 
-                    key={item.year}
-                    onMouseEnter={() => setHoveredYear(item.year)}
-                    onMouseLeave={() => setHoveredYear(null)}
-                    >
-                        <dt>{item.year}</dt>
-                        <dd className={isMobileView || hoveredYear === item.year ? 'on' : '' }>
-                            <h3>{item.title}</h3>
-                            <p>{item.desc}</p>
-                        </dd>
-                    </dl>
-                ))}
                 </div>
             </section>
             <section className="about__section3">
@@ -88,18 +219,48 @@ const About = () => {
                     </li>
                 </ol>
             </section>
-            <section className="about__section4">
-                <h2 className="tit1">PROVEN<br />PROJECT DELIVERY</h2>
-                <h3 className="tit2">7+ Years of Experience</h3>
-                <div className="box">
+            <section className="about__section4" ref={section4Ref}>
+                <h2 className="tit1" ref={section4titleRef}>
+                    {section4Title.map((line, lineIndex) => (
+                        <React.Fragment key={lineIndex}>
+                            {line.split('').map((char, charIndex) => (
+                                <span key={charIndex} className="title-letter">
+                                    {char === ' ' ? '\u00A0' : char}
+                                </span>
+                            ))}
+                            {lineIndex < section4Title.length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </h2>
+                <h3 className="tit2" ref={section4title2Ref}>7+ Years of Experience</h3>
+                <div className="box" ref={section4boxRef}>
                     <h4>Total<br />Contributions:</h4>
-                    <div className="count"><span>4</span><span>5</span></div>
+                    <div className="count">
+                        {targetNumbers.map((target, index) => (
+                            <div key={index} className="slot-column">
+                                {digits.map((num) => (
+                                    <span key={num} className="slot-number">{num}</span>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
                     <p>Focusing more on future<br />achievements than past numbers.</p>
                 </div>
             </section>
-            <section className="about__section5">
-                <h2 className="tit1">TECHNICAL<br />PROFICIENCY</h2>
-                <div className="tbl">
+            <section className="about__section5" ref={section5Ref}>
+                <h2 className="tit1" ref={section5titleRef}>
+                    {section5Title.map((line, lineIndex) => (
+                        <React.Fragment key={lineIndex}>
+                            {line.split('').map((char, charIndex) => (
+                                <span key={charIndex} className="title-letter">
+                                    {char === ' ' ? '\u00A0' : char}
+                                </span>
+                            ))}
+                            {lineIndex < section5Title.length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
+                </h2>
+                <div className="tbl" ref={section5tableRef}>
                     <dl className="tbl__tr">
                         <dt>Core</dt>
                         <dd>HTML5, CSS3, SCSS</dd>
@@ -122,9 +283,16 @@ const About = () => {
                     </dl>
                 </div>
             </section>
-            <section className="about__section6">
-                    <h2 className="tit">Evolving Excellence: <br />Ready for the Next Chapter</h2>
-                    <p className="txt">과거의 성과에 안주하지 않고 React와 TypeScript로 무장하여 더 높은 기준을 향해 나아갑니다. </p>     
+            <section className="about__section6" ref={section6Ref}>
+                    <h2 className="tit" ref={section6titleRef}>
+                        {section6Title.split('').map((char, index) => (
+                            <span key={index} className="title-letter">
+                                {char === ' ' ? '\u00A0' : char }
+                            </span>
+
+                        ))}
+                    </h2>
+                    <p className="txt" ref={section6textRef}>과거의 경험에 머무르지 않고, <br />React와 TypeScript를 기반으로 더 높은 기준의 웹을 구현합니다.</p>     
             </section>
         </main>
     )
