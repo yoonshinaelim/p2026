@@ -1152,11 +1152,14 @@ $text-color-type3: #13df4a;
       font-size:9.375rem;
     }
   }
+  .listWrap {
+    max-width:1600px;
+    margin:0 auto;
+  }
   .list {
     display:flex;
     flex-flow:row;
     flex-wrap: wrap;
-    margin:2rem -1rem 0;
     @include respond-to(lg) { 
       margin:3.125rem -1rem 0;
     }
@@ -1233,7 +1236,7 @@ $text-color-type3: #13df4a;
             font-size:2.3rem;
           }
             @include respond-to(lg) {       
-              font-size:3.5rem;
+              font-size:3rem;
           }
         }
         .title2 {
@@ -1244,7 +1247,7 @@ $text-color-type3: #13df4a;
             font-size:1.25rem;
           }
             @include respond-to(lg) {   
-            font-size:1.75rem;
+            font-size:1.5rem;
             }
         }
       }
@@ -1279,27 +1282,38 @@ $text-color-type3: #13df4a;
 }
 
 .expPage {
-  padding:3rem 1rem;
-  text-align:center;
-  @include respond-to(lg){
-   padding:6.25rem 2.5rem;
+  padding:1rem 3rem;
+  .titleBox {
+    height:46rem;
+    display: flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items: center;
+    background-size:cover;
+    border-radius:1.875rem;;
   }
   .title1 {
     font-size:1.8rem;
     font-weight:bold;
     line-height:1;
     text-transform:uppercase;
+    color:#fff;
     @include respond-to(lg){
-      font-size:7.5rem;
+      font-size:5rem;
     }
    }
    .title2 {
     font-size:1rem;
     line-height:1;
     margin-top:0.5rem;
+    color:#fff;
     @include respond-to(lg){
-      font-size:3.125rem;
+      font-size:2rem;
     }
+   }
+   .txtBox {
+    padding:3rem 1rem;
+    text-align:center;
    }
    .info {
     display:flex;
@@ -1367,7 +1381,7 @@ $text-color-type3: #13df4a;
     border:1px solid #000;
      @include respond-to(lg){
       font-size:1.25rem;
-      margin-top:3.125rem;
+      margin-top:6.125rem;
       padding:1rem 3rem;
      }
      &:hover {

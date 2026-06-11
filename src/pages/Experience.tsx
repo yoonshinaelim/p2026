@@ -36,35 +36,39 @@ useEffect(() =>{
             </span>
           ))}
         </h2>
-        <ul className="list">
-          {visibleData.map((item: ExperienceItem) => (
-            <li key={item.id}>
-              <div className="button_box">
-                <button
-                  type="button"
-                  onClick={() => handleNavigate(item.id)}
-                  style={
-                    {
-                      '--exp-bg': `url(${
-                        new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href
-                      })`,
-                    } as React.CSSProperties
-                  }
-                >
-                  <span className="box">
-                    <strong className="title1">{item.title1}</strong>
-                    <span className="title2">{item.title2}</span>
-                  </span>
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        {hasMore && (
+        <div className="listWrap">
+          <ul className="list">
+            {visibleData.map((item: ExperienceItem) => (
+              <li key={item.id}>
+                <div className="button_box">
+                  <button
+                    type="button"
+                    onClick={() => handleNavigate(item.id)}
+                    style={
+                      {
+                        '--exp-bg': `url(${
+                          new URL(`../assets/exp/list/bg${item.id}.png`, import.meta.url).href
+                        })`,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <span className="box">
+                      <strong className="title1">{item.title1}</strong>
+                      <span className="title2">{item.title2}</span>
+                    </span>
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {hasMore && (
           <button type="button" className="experience__more" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
             more+
           </button>
         )}
+        </div>
+       
+        
       </main>
     );
   };

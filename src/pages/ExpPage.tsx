@@ -19,15 +19,18 @@ const ExpPage: React.FC = () => {
     };
     return (
         <main className="expPage round">
-            <h2 className="title1">{selectedItem.title1}</h2>
+            <div className="titleBox" style={{ backgroundImage: `url(${getImageUrl(selectedItem.id)})` }}>
+                <h2 className="title1">{selectedItem.title1}</h2>
                 <h3 className="title2">{selectedItem.title2}</h3>
+            </div>
+            <div className="txtBox">
                 <ul className="info">
                     <li><strong>company</strong>{selectedItem.company}</li>
                     <li><strong>launch</strong>{selectedItem.period}</li>
                 </ul>
                 <p className="description">{selectedItem.description}</p>
-                <div className="img"><img src={getImageUrl(selectedItem.id)}  alt={selectedItem.title1} /></div>
                 <button type="button" className="backBtn" onClick={() => navigate(-1)} className="btn">BACK</button>
+            </div>
         </main>
     );
 };
