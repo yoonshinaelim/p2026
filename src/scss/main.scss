@@ -565,10 +565,6 @@ $text-color-type3: #13df4a;
       }
 
     }
-    .swiper-container {
-      @include respond-to(lg) {
-      }
-    }
     .lst_project {
       display:flex;
       flex-flow:row;
@@ -585,22 +581,27 @@ $text-color-type3: #13df4a;
           }
         }
         button {
-          display: flex;
-          align-items: flex-end;
+          position:relative;
           width:20rem;
           height:28rem;
           background:#000;
           border-radius:3.125rem;
           @include respond-to(md) {
-            width:28.125rem;
-            height:37.5rem;
+            width:30rem;
+            height:30rem;
           }
           .box {
-            width:100%;
-            padding:3.75rem 2.5rem;
+            position:absolute;
             text-align:left;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            
             .title1 {
-              width:100%;
+              position:absolute;
+              top:2.5rem;
+              left:2.5rem;
               display:block;
               color:#fff;
               font-size:2rem;
@@ -610,18 +611,22 @@ $text-color-type3: #13df4a;
               text-overflow: ellipsis;
               overflow:hidden;
               @include respond-to(md) {
-                font-size:2.5rem;
+                font-size:1.5rem;
               }
             }
             .title2 {
+              position:absolute;
+              left:2.5rem;
+              bottom:2.5rem;
               display:block;
               color:#fff;
-              font-size:1rem;
+              font-size:1.5rem;
+              font-weight:bold;
+              line-height:1.2;
               @include respond-to(md) {
-                font-size:1.5rem;
               }
               @include respond-to(lg) {
-                 font-size:1.25rem;
+                 font-size:2.5rem;
               }
             }
           }
@@ -900,46 +905,17 @@ $text-color-type3: #13df4a;
           font-size:2.5rem;
         }
       }
-      // .count {
-      //   display:flex;
-      //   flex-flow:row;
-      //   align-items:center;
-      //   justify-content:center;
-      //   gap:0.5rem;
-      //   margin-top:1rem;
-      //   @include respond-to(md) {
-      //    gap:1rem;
-      //    margin-top:3.125rem;
-      //   }
-      //   span {
-      //     display:inline-block;
-      //     width:6rem;
-      //     height:10rem;
-      //     line-height:1;
-      //     font-size:5rem;
-      //     border-radius:2rem;
-      //     background:#000;
-      //     color:#fff;
-      //     font-weight:bold;
-      //     @include respond-to(md) {
-      //       font-size:10rem;
-      //       width: 10rem;
-      //       height:14rem;
-      //       line-height:17rem;
-      //     }
-      //   }
-      // }
-
+    
       .count {
         position:relative;
         margin:2rem auto 0;
         display: flex;
         flex-flow: row;
         width:12rem;
-        font-size: 4rem; /* 원하는 크기로 조절 */
+        font-size: 4rem; 
         font-weight: bold;
-        height: 10rem;  /* 숫자 한 개가 보일 높이 지정 */
-        overflow: hidden; /* 위아래로 넘어가는 숫자 숨기기 */
+        height: 10rem;
+        overflow: hidden;
         line-height: 11rem;
         color:#fff;
         gap:0.5rem;
@@ -1153,144 +1129,123 @@ $text-color-type3: #13df4a;
     }
   }
   .listWrap {
-    max-width:1600px;
-    margin:0 auto;
-  }
+    width: 100%;
+     max-width: 1600px;
+    margin:0 auto; 
+
   .list {
-    display:flex;
-    flex-flow:row;
-    flex-wrap: wrap;
-    @include respond-to(lg) { 
-      margin:3.125rem -1rem 0;
-    }
-    li {
-      width:100%;
-      
+    column-count: 1;
       @include respond-to(md) {
-        width:50%;
+        column-count: 2;
+        column-gap:2rem;
       }
-      @include respond-to(xl) {
-        width:33.33%;
+      @include respond-to(lg) {
+        column-count: 3;
       }
-      .button_box {
-        margin:0.5rem;
-        overflow:hidden;
-        border-radius:3.125rem;
-        @include respond-to(md) {
-          margin:1rem;
-        }
-      }
-      button {
-        display:flex;
-        align-items:flex-end;
-        position:relative;
-        border:none;
-        border-radius:3.125rem;
+      li {
         width:100%;
-        height:28rem;
-        overflow:hidden;
-        cursor:pointer;
-        @include respond-to(md) {
-          height:30rem;
-        }
-        @include respond-to(lg) {
-          height:43.75rem;
-        }
-        &::before {
-          content:'';
-          position:absolute;
-          inset:0;
-          background-image:var(--exp-bg);
-          background-repeat:no-repeat;
-          background-position:center;
-          background-size:cover;
-          transform:scale(1);
-          transition:transform 0.5s ease;
-          z-index:0;
-        }
-        &:hover::before {
-          transform:scale(1.05);
-        }
-      }
-      .box {
-        position:relative;
-        z-index:1;
-        padding:2.5rem 2rem;
-        text-align:left;
-        overflow:hidden;
-          @include respond-to(lg) {
-          padding:3.75rem 2.5rem;
-        }
-        .title1 {
-          display:block;
-          width:100%;
-          color:#fff;          
-          font-size:2rem;
-          font-weight:bold;
-          text-transform:uppercase;
-          word-break:break-all;
-          white-space:nowrap;
-          text-overflow:ellipsis;
+        .button_box {
           overflow:hidden;
+          border-radius:3.125rem;
+          margin-bottom:1em;
           @include respond-to(md) {
-            font-size:2.3rem;
-          }
-            @include respond-to(lg) {       
-              font-size:3rem;
+             margin-bottom:2em;
           }
         }
-        .title2 {
-          display:block;
-          color:#fff;
-          font-size:1rem;
+        button {
+          display:flex;
+          align-items:flex-end;
+          position:relative;
+          border:none;
+          border-radius:3.125rem;
+          width:100%;
+          overflow:hidden;
+          cursor:pointer;
           @include respond-to(md) {
-            font-size:1.25rem;
           }
-            @include respond-to(lg) {   
-            font-size:1.5rem;
+          @include respond-to(lg) {
+          }
+          img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            position:relative;
+            z-index:0;
+          }
+        }
+        .box {
+          position:absolute;
+          width:100%;
+          height:100%;
+          top:0;
+          left:0;
+          z-index:1;
+          padding:2.5rem 2rem;
+          text-align:left;
+          overflow:hidden;
+            @include respond-to(lg) {
+            padding:3.75rem 2.5rem;
+          }
+          .title1 {
+            display:block;
+            width:100%;
+            color:#fff;          
+            font-size:1rem;
+            font-weight:bold;
+            text-transform:uppercase;
+            word-break:break-all;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            @include respond-to(md) {
+              font-size:1rem;
             }
+              @include respond-to(lg) {       
+                font-size:1.5rem;
+            }
+          }
+          .title2 {
+            position:absolute;
+            display:block;
+            color:#fff;
+            font-size:2rem;
+            font-weight:bold;
+            line-height:1.2;
+            left:0;
+            bottom:2.5rem;
+            padding:0 2rem;
+            @include respond-to(md) {
+              font-size:1.25rem;
+              padding:0 2.5rem;
+            }
+              @include respond-to(lg) {   
+              font-size:2.5rem;
+              bottom:3.75rem;
+              }
+          }
         }
       }
-    }
-  }
-  &__more {
-    display:block;
-    margin:2rem auto 0;
-    padding:0.8rem 2.5rem;
-    font-size:1rem;
-    border:none;
-    border-radius:3.125rem;
-    text-align:center;
-    text-transform:uppercase;
-    font-weight:900;
-    cursor:pointer;
-    border:1px solid #000;
-    @include respond-to(md) {
-      font-size:1.375rem;
-      margin-top:2.5rem;
-      padding:1rem 3rem;
-    }
-    @include respond-to(lg) {
-      font-size:1.5625rem;
-      margin-top:3.125rem;
-    }
-    &:hover {
-      background:#000;
-      color:#fff;
-    }
   }
 }
 
+}
+
 .expPage {
-  padding:1rem 3rem;
+  padding:1rem;
+  @include respond-to(md) {
+    padding:1rem 3rem;
+  }
   .titleBox {
-    height:46rem;
+    height:15rem;
     display: flex;
     flex-flow:column;
     justify-content:center;
     align-items: center;
     background-size:cover;
     border-radius:1.875rem;;
+    @include respond-to(md) {    
+      height:46rem;
+    }
   }
   .title1 {
     font-size:1.8rem;
@@ -1318,10 +1273,11 @@ $text-color-type3: #13df4a;
    .info {
     display:flex;
     justify-content: center;
-      flex-flow:row;
-      margin-top:2rem;
+      flex-flow:column;
       gap:0.625rem;
        @include respond-to(lg) {
+      flex-flow:row;
+      margin-top:2rem;
       margin-top:3.125rem;
       }
       li {
