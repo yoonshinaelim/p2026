@@ -4,6 +4,7 @@ export interface ExperienceItem {
     title2: string;
     company: string;
     period: string;
+    subtitle: string;
     description: string;
   }
   
