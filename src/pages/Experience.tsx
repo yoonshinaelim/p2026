@@ -58,7 +58,7 @@ const Experience: React.FC = () => {
       <div className="listWrap">
         <ul className="list" ref={listRef}>
           {visibleData.map((item: ExperienceItem) => {
-            const isTargetId = [7, 11, 17, 23, 24].includes(item.id);
+            const isTargetId = [7, 11, 23, 24].includes(item.id);
             return (
               <li key={item.id}>
                 <div className="button_box">
