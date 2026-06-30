@@ -5,10 +5,10 @@
 $bg-color-type1: #fff;
 $bg-color-type2: #000;
 $bg-color-type3: #d0f9db;
-$bg-color-type4: #13df4a;
+$bg-color-type4: #fff;
 
 $text-color-type2: #fff; 
-$text-color-type3: #13df4a; 
+$text-color-type3: #fff; 
 
 // common
 .br{
@@ -1115,7 +1115,7 @@ $text-color-type3: #13df4a;
   z-index:2;
   padding:3rem 1.5rem;
   @include respond-to(lg) {
-  padding:6.25rem 2.5rem;
+  padding:2rem 2.5rem 6.25rem;
   }
   .title {
     font-size:2.5rem;
@@ -1130,7 +1130,7 @@ $text-color-type3: #13df4a;
   }
   .listWrap {
     width: 100%;
-     max-width: 1600px;
+   max-width: 1600px;
     margin:0 auto; 
 
   .list {
@@ -1370,17 +1370,21 @@ $text-color-type3: #13df4a;
   display:flex;
   flex-flow:column;
   flex:1;
-  padding:3rem 1rem;
+  padding:1rem 1rem 3rem;
   position:relative;
   border-radius:0 0 50px 50px;
   background:#fff;
   z-index:2;
   @include respond-to(lg) {
+    flex-flow:column;
+    padding:2rem 2.5rem 5rem;
+  }
+  @include respond-to(xl) {
     flex-flow:row;
-    padding:5rem 2.5rem;
+    padding:2rem 2.5rem 5rem;
   }
   &__title {
-    @include respond-to(lg) {
+    @include respond-to(xl) {
       width:50%;
     }
     .tit {
@@ -1405,7 +1409,7 @@ $text-color-type3: #13df4a;
     display:flex;
     flex-flow:column;
     margin-top:2rem;
-    @include respond-to(lg){
+    @include respond-to(xl){
       width:50%;
       margin-top:0;
     }
@@ -1420,7 +1424,7 @@ $text-color-type3: #13df4a;
       input {
         width:100%;
         border:none;
-        background:$bg-color-type3;
+        background:#f0f0f0;
         font-size:1rem;
         line-height:1rem;
         padding:1rem 1.5rem;
@@ -1432,7 +1436,7 @@ $text-color-type3: #13df4a;
           padding:2.1875rem 2.5rem 1.875rem;
         }
         &::placeholder {
-          color:#71d38c;
+          color:#ccc;
           font-weight:bold;
         }
       }
@@ -1440,7 +1444,7 @@ $text-color-type3: #13df4a;
         box-sizing: border-box;
         width:100%;
         border:none;
-        background:$bg-color-type3;
+        background:#f0f0f0;
         height:10rem;
         font-size:1rem;
         line-height:1.5rem;
@@ -1455,7 +1459,7 @@ $text-color-type3: #13df4a;
         border-radius:3.125rem;
         }
         &::placeholder {
-          color:#71d38c;
+          color:#ccc;
           font-weight:bold;
         }
       }
@@ -1469,7 +1473,7 @@ $text-color-type3: #13df4a;
     }
     
     button {
-      background:$bg-color-type4;
+      background:#000;
       font-size:1rem;
       border-radius:3.125rem;
       height:3rem;
