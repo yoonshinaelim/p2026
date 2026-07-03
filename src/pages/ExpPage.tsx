@@ -24,14 +24,17 @@ const ExpPage: React.FC = () => {
                 <h3 className="title2">{selectedItem.title2}</h3>
             </div>
             <div className="txtBox">
-                <h4 className="subtitle">{selectedItem.subtitle}</h4>
-                <p className="description">{selectedItem.description}</p>
-                <ul className="info">
-                    <li><strong>company</strong>{selectedItem.company}</li>
-                    <li><strong>launch</strong>{selectedItem.period}</li>
-                </ul>
+                <div className="flexBox">
+                    <h4 className="subtitle">{selectedItem.subtitle}</h4>
+                    <p className="description">{selectedItem.description}</p>
+                </div>
+                <div className="flexBox">
+                    <ul className="info">
+                        <li><strong>company</strong>{selectedItem.company}</li>
+                        <li><strong>launch</strong>{selectedItem.period}</li>
+                    </ul>
+                </div>
             </div>
-            <button type="button" className="backBtn" onClick={() => navigate(-1)} className="btn">BACK</button>
         </main>
     );
 };

@@ -283,7 +283,7 @@ const About = () => {
                     </dl>
                 </div>
             </section>
-            <section className="about__section6" ref={section6Ref}>
+            {/* <section className="about__section6" ref={section6Ref}>
                     <h2 className="tit" ref={section6titleRef}>
                         {section6Title.split('').map((char, index) => (
                             <span key={index} className="title-letter">
@@ -293,7 +293,7 @@ const About = () => {
                         ))}
                     </h2>
                     <p className="txt" ref={section6textRef}>과거의 경험에 머무르지 않고, <br />React와 TypeScript를 기반으로 더 높은 기준의 웹을 구현합니다.</p>     
-            </section>
+            </section> */}
         </main>
     )
 

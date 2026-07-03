@@ -326,7 +326,7 @@ export interface ExperienceItem {
   },
   {
       id: 36,
-      title1: "standardchartered",
+      title1: "standard chartered",
       title2: "app development",
       subtitle: "SC제일은행 셀프뱅크 앱 구축",
       description: "2017년 08월 21일부터 2018년 01월 31일까지 셀프뱅크은 고객이 쉽고 간편하게 통장개설을 하는 SC제일은행의 셀프뱅크 앱 구축 프로젝트에 참여하였습니다.\n프로젝트 리더(PL) 1명, 프로젝트 팀원(PA) 1명 중 프로젝트 팀원(PA)으로 투입되었고 공통 가이드를 제작했습니다.\nSC제일은행과 프로젝트 리더(PL)간의 보안상 문제로 인해 SC제일은행 내부로 들어올 수 없는 상황이 되어, 프로젝트 팀원(PA)으로 있었던 제가 개발자와 다이렉트 소통을 하며 프로젝트를 마무리하였습니다.",
@@ -335,7 +335,7 @@ export interface ExperienceItem {
   },
   {
       id: 37,
-      title1: "standardchartered",
+      title1: "standard chartered",
       title2: "app development",
       subtitle: "SC제일은행 PPR 구축",
       description: "2017년 03월 20일부터 2018년 04월 10일까지 금융 창구에서 종이 없이 프로세스를 진행하는 SC제일은행의 PPR 구축 프로젝트에 참여하였습니다.\n다른 직원이 메인으로 작업했던 것에서 수정사항을 작업해서 전달하였기 때문에 짧은 기간동안 진행하였습니다.",
@@ -389,7 +389,7 @@ export interface ExperienceItem {
   },
   {
       id: 43,
-      title1: "standardchartered",
+      title1: "standard chartered",
       title2: "web app management",
       subtitle: "SC제일은행 웹 애플리케이션 운영",
       description: "2020년 01월부터 2020년 12월까지 SC제일은행 계약직(9개월)에서 정규직 전환하여 업무를 하였습니다.\n홈페이지(반응형), 모바일뱅킹 앱, mobility platform 앱, PPR 앱 운영 업무를 진행하였습니다.",
