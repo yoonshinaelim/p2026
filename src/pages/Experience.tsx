@@ -54,7 +54,7 @@ const Experience: React.FC = () => {
     };
   }, [visibleData]); // visibleData가 변경되어 리스트가 다시 그려질 때 애니메이션 재설정
   return (
-    <main className="experience round">
+    <main className="experience">
       <div className="listWrap">
         <ul className="list" ref={listRef}>
           {visibleData.map((item: ExperienceItem) => {

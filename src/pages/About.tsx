@@ -2,74 +2,169 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Draggable } from 'gsap/Draggable'; // 💡 Draggable 임포트
 
 const About = () => {
-
-    
-    
     const [hoveredYear, setHoveredYear] = useState<string | null>(null);
     const [isMobileView, setIsMobileView] = useState<boolean>(false);
-    const section2Ref = useRef<HTMLElement>(null);
+    const section2Ref = useRef<HTMLElement | null>(null);    
+    const section3Ref = useRef<HTMLElement | null>(null);    
+    const section6Ref = useRef<HTMLElement | null>(null);
+    const skill1Ref = useRef<HTMLLIElement | null>(null);
+    const skill2Ref = useRef<HTMLLIElement | null>(null);
+    const skill3Ref = useRef<HTMLLIElement | null>(null);
+    const txt1Ref = useRef<HTMLParagraphElement | null>(null);
+    const txt2Ref = useRef<HTMLParagraphElement | null>(null);
+    const txt3Ref = useRef<HTMLParagraphElement | null>(null);
+    const circleRef = useRef<HTMLDivElement | null>(null);
+    const keywordLeftRef = useRef<HTMLUListElement | null>(null);
+    const keywordRightRef = useRef<HTMLUListElement | null>(null);
     const section4Ref = useRef<HTMLElement>(null);
     const section5Ref = useRef<HTMLElement>(null);
-    const section6Ref = useRef<HTMLElement>(null);
     const section1titleRef = useRef<HTMLHeadingElement | null>(null);
     const section4titleRef = useRef<HTMLHeadingElement | null>(null);
     const section4title2Ref = useRef<HTMLHeadingElement | null>(null);
     const section4boxRef = useRef<HTMLHeadingElement | null>(null);
     const section5titleRef = useRef<HTMLHeadingElement | null>(null);
     const section5tableRef = useRef<HTMLHeadingElement | null>(null);
-    const section6titleRef = useRef<HTMLHeadingElement | null>(null);
-    const section6textRef = useRef<HTMLHeadingElement | null>(null);
+    const section6TitRef = useRef<HTMLHeadingElement | null>(null);
+    const section6TextRef = useRef<HTMLParagraphElement | null>(null);
+    const section6BtnRef = useRef<HTMLButtonElement | null>(null);
     const sectionTitle = "윤신애림.";
     const section4Title = ["PROVEN", "DELIVERY"];
     const section5Title = ["TECHNICAL", "PROFICIENCY"];
-    const section6Title = "READY FOR NEXT";
-  
+    const section6Title = 'Pixel Perfect';
+    const scrollToSection = () => {
+        section2Ref.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+    
     // 최종 목표 숫자 (4, 5)
     const targetNumbers = [4, 5]; 
   
     // 애니메이션 시작 여부를 관리하는 상태
     const [isAnimate, setIsAnimate] = useState(false);
 
+
     // 0부터 9까지의 배열 생성
     const digits = Array.from({ length: 10 }, (_, i) => i);
+    
     useEffect(() => {
       gsap.registerPlugin(ScrollTrigger);
       
       const mediaQuery = window.matchMedia('(max-width: 768px)');
       const updateView = () => setIsMobileView(mediaQuery.matches);
+      const section2 = section2Ref.current;
+      const section3 = section3Ref.current;
+      const section6 = section6Ref.current;
+      const skill1 = skill1Ref.current;
+      const skill2 = skill2Ref.current;
+      const skill3 = skill3Ref.current;
+      const keywordLeft = keywordLeftRef.current;
+      const keywordRight = keywordRightRef.current;
+      const txt1 = txt1Ref.current;
+      const txt2 = txt2Ref.current;
+      const txt3 = txt3Ref.current;
+      const circle = circleRef.current;
       const section4 = section4titleRef.current;
       const sectiontitle2 = section4title2Ref.current;
       const section4box = section4boxRef.current;
       const section5 = section5titleRef.current;
       const section5table = section5tableRef.current;
-      const section6 = section6titleRef.current;
-      const section6text = section6textRef.current;
-      const sectionTitleChar = section1titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+      const section6Tit = section6TitRef.current;
+      const section6Text = section6TextRef.current;
+      const section6Btn = section6BtnRef.current;
+      const sectionTitle1Char = section1titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
       const sectionTitle4Char = section4titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
       const sectionTitle5Char = section5titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
-      const sectionTitle6Char = section6titleRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
+      const sectionTitle6Char = section6TitRef.current?.querySelectorAll<HTMLSpanElement>('.title-letter');
 
-      if(!sectionTitleChar?.length  || !sectionTitle4Char?.length || !sectionTitle5Char?.length || !sectionTitle6Char?.length ) return;
+      if(!sectionTitle1Char?.length  || !sectionTitle4Char?.length || !sectionTitle5Char?.length || !sectionTitle6Char?.length || 
+        !section2 || !keywordLeft || !keywordRight || !txt1 || !txt2 || !txt3 || !circle || !section3 || !skill1 || !skill2 || !skill3
+    || !section6Tit || !section6Text || !section6Btn || !section6  ) return;
 
       const tl = gsap.timeline();
-      tl.set(sectionTitleChar, {opacity:0, y : 50});
-      tl.to(sectionTitleChar, {opacity:1, y:0, duration: 0.4, ease:'power2.out', stagger:0.05})
+      tl.set(sectionTitle1Char, {opacity:0, y : 50});
+      tl.to(sectionTitle1Char, {opacity:1, y:0, duration: 0.4, ease:'power2.out', stagger:0.1});
+     // --- Section 2 애니메이션 (Pin & 가로 이동) ---
+      const sectionPin = ScrollTrigger.create({
+        trigger: section2,
+        start: 'top top',
+        end: '+=200%',
+        pin: true,
+        pinSpacing: true,
+      });
+
+      const keywordLeftTween = gsap.to(keywordLeft, {
+        xPercent: -25,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section2,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+      const keywordRightTween = gsap.to(keywordRight, {
+        xPercent: 25,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section2,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+      const circleScaleTween = gsap.timeline({
+        scale: 35,
+        transformOrigin: 'center center',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section2,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+      circleScaleTween.fromTo(circle, { scale: 0 }, { scale: 35, ease: 'none', scrollTrigger: { trigger: section2, start: 'top top', end: 'bottom top', scrub: true } });
+
+      const txtTween = gsap.timeline({
+        scrollTrigger: {
+          trigger: section2,
+          start: 'top top',
+          end: '+=2000',
+          scrub: true,
+        },
+      });
+      txtTween.fromTo(txt1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .to(txt1, { opacity: 0, y: -30 })
+        .fromTo(txt2, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .to(txt2, { opacity: 0, y: -30 })
+        .fromTo(txt3, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .to(txt3, { opacity: 0, y: -30 });
+
+      const section3Tween = gsap.timeline({
+        scrollTrigger: {
+            trigger: section3,
+            start: 'top 60%',
+            end: 'bottom top',
+            toggleActions: 'play none none reverse',
+        }
+      });
+      section3Tween.fromTo(skill1, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
+      section3Tween.fromTo(skill2, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
+      section3Tween.fromTo(skill3, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
 
       const section4Tween = gsap.timeline({
             scrollTrigger: {
                 trigger: section4,         // 트리거 대상을 박스로 변경!
                 start: 'top 60%',             // 박스 상단이 뷰포트의 60% 높이에 오면 실행
                 end: 'bottom top',
-                toggleActions: 'play none none none',
+                toggleActions: 'play none none reverse',
             }
         });
-      section4Tween.fromTo(sectionTitle4Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
-      section4Tween.fromTo(sectiontitle2, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
-      section4Tween.fromTo(section4box, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
-         // ★ [동시 실행 + 각각 다른 속도와 랜덤 롤링 효과]
-        // 첫 번째 숫자 (4) 설정: 0.12초 속도로 3바퀴 돌고 안착
+      section4Tween.fromTo(sectionTitle4Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.5, ease: 'power2.out', stagger: 0.05 });
+      section4Tween.fromTo(sectiontitle2, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.5, ease: 'power2.out', stagger: 0.05 });
+      section4Tween.fromTo(section4box, { opacity: 0, y: 30 },{ opacity: 1, y: 0, duration:0.5, ease: 'power2.out', stagger: 0.05 });
         const rollDuration1 = 0.12; 
         const repeatCount1 = 3;    
 
@@ -143,28 +238,26 @@ const About = () => {
       const section5Tween = gsap.timeline({
         scrollTrigger: {
           trigger: section5,
-          start: 'top 50%',
+          start: 'top top',
           end: 'bottom top',
-          toggleActions: 'play none none none',
+          toggleActions: 'play none none reverse',
         },
       });
-      section5Tween.fromTo(sectionTitle5Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
-      section5Tween.fromTo(section5table, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });
+      section5Tween.fromTo(sectionTitle5Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
+      section5Tween.fromTo(section5table, { opacity: 0, y: 30 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
 
       const section6Tween = gsap.timeline({
         scrollTrigger: {
           trigger: section6,
           start: 'top 50%',
           end: 'bottom top',
-          toggleActions: 'play none none none',
+          toggleActions: 'play none none reverse',
         },
       });
-      section6Tween.fromTo(sectionTitle6Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });   
-      section6Tween.fromTo(section6text, { opacity: 0, y: 30 },{ opacity: 1, y: 0, ease: 'power2.out', stagger: 0.05 });   
+      section6Tween.fromTo(sectionTitle6Char, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 })
+      .fromTo(section6Text, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 })
+      .fromTo(section6Btn, { opacity: 0, y: 50 },{ opacity: 1, y: 0, duration:0.2, ease: 'power2.out', stagger: 0.05 });
 
-      // 컴포넌트가 로드되거나, 스크롤 이벤트를 통해 이 섹션이 보일 때 실행하도록 설정 가능
-    // 여기서는 컴포넌트가 마운트되고 200ms 후에 자동으로 굴러가도록 했습니다.
-   
 
       updateView();
       mediaQuery.addEventListener?.('change', updateView);
@@ -173,20 +266,22 @@ const About = () => {
       return () => {
         mediaQuery.removeEventListener?.('change', updateView);
         mediaQuery.removeListener?.(updateView);
-        
+        section3Tween.kill();
         section4Tween.kill();
         section5Tween.kill();
         section6Tween.kill();
+        sectionPin.kill();
+        keywordLeftTween.kill();
+        keywordRightTween.kill();
+        circleScaleTween.kill();
+        txtTween.kill();    
       };
     
     }, []); 
 
-    const scrollToSection = () => {
-        section2Ref.current?.scrollIntoView({ behavior: 'smooth' });
-    };
     return (
-        <main className="about round">
-            <section className="about__section1">
+        <main className="about">
+           <section className='about__section1'>
                 <div className="box">
                     <span className="box__tit1">about me</span>
                     <h2 className="box__tit2" ref={section1titleRef}>
@@ -197,22 +292,40 @@ const About = () => {
 
                         ))}
                     </h2>
-                    <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기"><span className="visually-hidden">아래로 내려가기 버튼</span></button>
+                    <button type="button" className="box__btn" onClick={scrollToSection} aria-label="아래로 내려가기">VIEW MORE</button>
                 </div>
             </section>
-            <section className="about__section3">
+            <section className="about__section2" ref={section2Ref}>
+                <ul className="lst_keyword left" ref={keywordLeftRef}>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                </ul>
+                <ul className="lst_keyword right" ref={keywordRightRef}>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                    <li>EXPERIENCED</li><li>ESSENTIAL</li><li>EVOLVING</li>
+                </ul>
+                <div className="circle" ref={circleRef}>
+                    <div className="circle2"></div>
+                </div>
+                <p className="txt1" ref={txt1Ref}>유행은 변해도<br />본질은 변하지 않는,<br />7년의 단단한 중심</p>
+                <p className="txt2" ref={txt2Ref}>디자인의 의도를 이해하고,<br />견고한 코드로<br />그 가치를 증명합니다.</p>
+                <p className="txt3" ref={txt3Ref}>한 땀 한 땀<br />정교하게 다듬어온 감각으로,<br />변치 않는 사용자 경험을<br />빚어냅니다.</p>
+            </section>
+            <section className="about__section3" ref={section3Ref}>
                 <ol className="skill">
-                    <li>
+                    <li ref={skill1Ref}>
                         <span>01</span>
                         <h3>시멘틱 마크업 &amp; 웹 표준</h3>
                         <p>웹 표준을 준수하는 시멘틱 태그 활용으로 정보의 구조를 명확히 설계합니다. 이는 검색 엔진 최적화(SEO)를 극대화할 뿐만 아니라, 보조 공학 기기를 사용하는 사용자까지 고려한 웹 접근성(A11y) 향상에 기여합니다.</p>
                     </li>
-                    <li>
+                    <li ref={skill2Ref}>
                         <span>02</span>
                         <h3>반응형 인터페이스 &amp; 최적화</h3>
                         <p>다양한 해상도와 디바이스 환경에 대응하는 유연한 레이아웃을 구현합니다. 미디어 쿼리와 최신 CSS 기법을 활용하여 시각적 일관성을 유지하며, 코드 효율화를 통해 로딩 속도를 개선하고 쾌적한 사용자 경험을 제공합니다.</p>
                     </li>
-                    <li>
+                    <li ref={skill3Ref}>
                         <span>03</span>
                         <h3>인터랙티브 모션 구현</h3>
                         <p>복잡한 타임라인 기반의 애니메이션 라이브러리를 활용해 생동감 있는 사용자 인터페이스를 구축합니다. 브라우저 렌더링 원리를 이해하여 성능 저하 없는 부드러운 인터랙션을 구현하며, 서비스의 아이덴티티를 강화하는 시각적 요소를 더합니다.</p>
@@ -283,19 +396,22 @@ const About = () => {
                     </dl>
                 </div>
             </section>
-            {/* <section className="about__section6" ref={section6Ref}>
-                    <h2 className="tit" ref={section6titleRef}>
-                        {section6Title.split('').map((char, index) => (
-                            <span key={index} className="title-letter">
-                                {char === ' ' ? '\u00A0' : char }
-                            </span>
-
-                        ))}
+            <section className="about__section6" ref={section6Ref}>
+                <div className="bg">
+                    <h2 className="tit" ref={section6TitRef}>
+                    {section6Title.split('').map((char, index) => (
+                        <span key={`l1-${index}`} className="title-letter">
+                        {char === ' ' ? '\u00A0' : char}
+                        </span>
+                    ))}
                     </h2>
-                    <p className="txt" ref={section6textRef}>과거의 경험에 머무르지 않고, <br />React와 TypeScript를 기반으로 더 높은 기준의 웹을 구현합니다.</p>     
-            </section> */}
+                    <p className="txt" ref={section6TextRef}>디자인을 진심으로 이해하는 <span className="br"></span>퍼블리셔를 찾고 계신가요?</p>
+                    <button type="button" className="btn" onClick={() => navigate('/Contact')} ref={section6BtnRef}>
+                        <span className="visually-hidden">CONTACT 페이지로 이동</span>
+                    </button>
+                </div>
+            </section>
         </main>
     )
-
 };
 export default About;

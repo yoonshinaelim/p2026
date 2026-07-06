@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 const Contact = () => {
     return (
-        <main className="contact round">
+        <main className="contact">
             <div className="contact__title">
                 <h2 className="tit">
                     Let's<br />connect
