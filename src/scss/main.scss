@@ -804,7 +804,7 @@ $text-color-type3: #13df49;
     position:relative;
     z-index:1;
     padding:3rem 0;
-    background:$bg-color-type3;
+    background:#000;
     @include respond-to(lg) {
       padding:15.625rem 0;
     }
@@ -825,7 +825,6 @@ $text-color-type3: #13df49;
         border-radius:3.125rem;
         padding:2rem;
         flex:1;
-        background:#f0f0f0;
          @include respond-to(lg) {
           padding:3.125rem;
           }
@@ -1081,7 +1080,8 @@ $text-color-type3: #13df49;
     flex-flow:column;
     justify-content:center;
     align-items:center;
-    background-image:url(../assets/main/bg_sec3.png);
+    // background-image:url(../assets/main/bg_sec3.png);
+    background-image:url(../assets/page/bg_sea.png);
     background-repeat:no-repeat;
     background-position:center;
     background-attachment:scroll;

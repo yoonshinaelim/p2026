@@ -55,6 +55,7 @@ const About = () => {
       const updateView = () => setIsMobileView(mediaQuery.matches);
       const section2 = section2Ref.current;
       const section3 = section3Ref.current;
+      const section5 = section5Ref.current;
       const section6 = section6Ref.current;
       const skill1 = skill1Ref.current;
       const skill2 = skill2Ref.current;
@@ -68,7 +69,6 @@ const About = () => {
       const section4 = section4titleRef.current;
       const sectiontitle2 = section4title2Ref.current;
       const section4box = section4boxRef.current;
-      const section5 = section5titleRef.current;
       const section5table = section5tableRef.current;
       const section6Tit = section6TitRef.current;
       const section6Text = section6TextRef.current;
@@ -313,25 +313,7 @@ const About = () => {
                 <p className="txt2" ref={txt2Ref}>디자인의 의도를 이해하고,<br />견고한 코드로<br />그 가치를 증명합니다.</p>
                 <p className="txt3" ref={txt3Ref}>한 땀 한 땀<br />정교하게 다듬어온 감각으로,<br />변치 않는 사용자 경험을<br />빚어냅니다.</p>
             </section>
-            <section className="about__section3" ref={section3Ref}>
-                <ol className="skill">
-                    <li ref={skill1Ref}>
-                        <span>01</span>
-                        <h3>시멘틱 마크업 &amp; 웹 표준</h3>
-                        <p>웹 표준을 준수하는 시멘틱 태그 활용으로 정보의 구조를 명확히 설계합니다. 이는 검색 엔진 최적화(SEO)를 극대화할 뿐만 아니라, 보조 공학 기기를 사용하는 사용자까지 고려한 웹 접근성(A11y) 향상에 기여합니다.</p>
-                    </li>
-                    <li ref={skill2Ref}>
-                        <span>02</span>
-                        <h3>반응형 인터페이스 &amp; 최적화</h3>
-                        <p>다양한 해상도와 디바이스 환경에 대응하는 유연한 레이아웃을 구현합니다. 미디어 쿼리와 최신 CSS 기법을 활용하여 시각적 일관성을 유지하며, 코드 효율화를 통해 로딩 속도를 개선하고 쾌적한 사용자 경험을 제공합니다.</p>
-                    </li>
-                    <li ref={skill3Ref}>
-                        <span>03</span>
-                        <h3>인터랙티브 모션 구현</h3>
-                        <p>복잡한 타임라인 기반의 애니메이션 라이브러리를 활용해 생동감 있는 사용자 인터페이스를 구축합니다. 브라우저 렌더링 원리를 이해하여 성능 저하 없는 부드러운 인터랙션을 구현하며, 서비스의 아이덴티티를 강화하는 시각적 요소를 더합니다.</p>
-                    </li>
-                </ol>
-            </section>
+
             <section className="about__section4" ref={section4Ref}>
                 <h2 className="tit1" ref={section4titleRef}>
                     {section4Title.map((line, lineIndex) => (
@@ -359,6 +341,25 @@ const About = () => {
                     </div>
                     <p>Focusing more on future<br />achievements than past numbers.</p>
                 </div>
+            </section>
+            <section className="about__section3" ref={section3Ref}>
+                <ol className="skill">
+                    <li ref={skill1Ref}>
+                        <span>01</span>
+                        <h3>시멘틱 마크업 &amp; 웹 표준</h3>
+                        <p>웹 표준을 준수하는 시멘틱 태그 활용으로 정보의 구조를 명확히 설계합니다. 이는 검색 엔진 최적화(SEO)를 극대화할 뿐만 아니라, 보조 공학 기기를 사용하는 사용자까지 고려한 웹 접근성(A11y) 향상에 기여합니다.</p>
+                    </li>
+                    <li ref={skill2Ref}>
+                        <span>02</span>
+                        <h3>반응형 인터페이스 &amp; 최적화</h3>
+                        <p>다양한 해상도와 디바이스 환경에 대응하는 유연한 레이아웃을 구현합니다. 미디어 쿼리와 최신 CSS 기법을 활용하여 시각적 일관성을 유지하며, 코드 효율화를 통해 로딩 속도를 개선하고 쾌적한 사용자 경험을 제공합니다.</p>
+                    </li>
+                    <li ref={skill3Ref}>
+                        <span>03</span>
+                        <h3>인터랙티브 모션 구현</h3>
+                        <p>복잡한 타임라인 기반의 애니메이션 라이브러리를 활용해 생동감 있는 사용자 인터페이스를 구축합니다. 브라우저 렌더링 원리를 이해하여 성능 저하 없는 부드러운 인터랙션을 구현하며, 서비스의 아이덴티티를 강화하는 시각적 요소를 더합니다.</p>
+                    </li>
+                </ol>
             </section>
             <section className="about__section5" ref={section5Ref}>
                 <h2 className="tit1" ref={section5titleRef}>
