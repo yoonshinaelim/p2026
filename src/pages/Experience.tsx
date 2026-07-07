@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { experienceData, ExperienceItem } from '../data/experienceData';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; // ScrollTrigger 임포트
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 
-// GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience: React.FC = () => {
@@ -15,44 +14,52 @@ const Experience: React.FC = () => {
 
   const reversedData = [...experienceData].reverse();
   
-  // 상태 초기값 설정 (우선 전체 데이터를 다 보여주도록 설정)
-  const [visibleCount, setVisibleCount] = useState(reversedData.length);
+  // 만약 나중에 더보기(Load More) 기능 등을 염두에 두신 게 아니라면 
+  // 바로 reversedData를 사용하셔도 좋지만, 유지하신다면 visibleCount를 의존성에 넣는 것이 안전합니다.
+  const [visibleCount] = useState(reversedData.length);
   const visibleData = reversedData.slice(0, visibleCount);
   
-  const listRef = useRef<HTMLUListElement | null>(null); // 리스트 애니메이션을 위한 ref 추가
-
+  const listRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
+    // 요소가 없거나 아이템이 없으면 실행하지 않음
+    if (!listRef.current) return;
 
-    // 1. 스크롤 시 리스트 아이템이 자연스럽게 나오는 애니메이션 (ScrollTrigger)
-    const listItems = listRef.current?.querySelectorAll('li');
-    if (listItems?.length) {
-      listItems.forEach((item) => {
-        gsap.fromTo(item, 
-          { 
-            opacity: 0, 
-            y: 60 // 아래에서 시작
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: item,       // 애니메이션 시작 기준이 되는 요소
-              start: 'top 85%',    // 요소의 탑이 화면의 85% 지점에 도달했을 때 시작
-              toggleActions: 'play none none none', // 스크롤 내릴 때 한 번만 재생
+    // GSAP Context를 생성하여 이 컴포넌트 내부의 애니메이션만 안전하게 관리
+    const ctx = gsap.context(() => {
+      const listItems = listRef.current?.querySelectorAll('li');
+      
+      if (listItems && listItems.length > 0) {
+        listItems.forEach((item) => {
+          gsap.fromTo(item, 
+            { 
+              opacity: 0, 
+              y: 60 
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              }
             }
-          }
-        );
-      });
-    }
+          );
+        });
 
-    // 컴포넌트 언마운트 시 ScrollTrigger 인스턴스 정리
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, [visibleData]); // visibleData가 변경되어 리스트가 다시 그려질 때 애니메이션 재설정
+        // 💡 핵심: DOM 요소들의 위치 계산을 강제로 새로고침하여 타이밍 오류 해결
+        ScrollTrigger.refresh();
+      }
+    }, listRef); // 스코프를 listRef로 제한
+
+    ScrollTrigger.refresh();
+    // 컴포넌트 언마운트 시 해당 컨텍스트 내의 모든 트리거만 깔끔하게 제거
+    return () => ctx.revert();
+  }, [visibleCount]); // 배열이나 객체 대신 숫자를 감시하여 무한 루프 예방
+
   return (
     <main className="experience">
       <div className="listWrap">

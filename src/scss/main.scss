@@ -431,7 +431,7 @@ $text-color-type3: #f0f0f0;
           display:inline-block;
           width:2rem;
           height:2rem;
-          line-height:2.4rem;
+          line-height:2.5rem;
           font-size:0.8rem;
           text-align:center;
           font-weight:bold;
@@ -870,13 +870,14 @@ $text-color-type3: #f0f0f0;
     align-items: center;
     background-size:cover;
     background-attachment:scroll;
+    background-position:center;
     border-radius:1.875rem;;
     @include respond-to(md) {    
       height:80vh;
     }
   }
   .title1 {
-    font-size:3rem;
+    font-size:2.5rem;
     font-weight:bold;
     text-align:center;
     word-break: keep-all;
@@ -915,7 +916,7 @@ $text-color-type3: #f0f0f0;
         margin-top:1.5rem;
        @include respond-to(lg) {
         margin-top:0;
-        margin-left:1rem;
+        margin-left:5rem;
       }
       li {
         font-size:1rem;
@@ -939,6 +940,7 @@ $text-color-type3: #f0f0f0;
     font-size:1.75rem;
     word-break:keep-all;
     font-weight:bold;
+    font-family: 'notosans';
     @include respond-to(lg){
       font-size:2.5rem;
     }
@@ -1011,7 +1013,7 @@ $text-color-type3: #f0f0f0;
       width:50%;
     }
     .tit {
-      font-size:3rem;
+      font-size:2.5rem;
       line-height:1;
       overflow:hidden;
       @include respond-to(lg) {
@@ -1019,7 +1021,7 @@ $text-color-type3: #f0f0f0;
       }
     }
     .txt {
-      font-size:1.25rem;
+      font-size:1rem;
       line-height:1.5;
       margin-top:0.5rem;
       @include respond-to(lg) {
@@ -1048,8 +1050,8 @@ $text-color-type3: #f0f0f0;
         width:100%;
         border:none;
         background:#f0f0f0;
-        font-size:1.25rem;
-        line-height:1.25rem;
+        font-size:1rem;
+        line-height:1rem;
         padding:1rem 1.75rem;
         border-radius:3.125rem;
         outline:none;
@@ -1069,8 +1071,8 @@ $text-color-type3: #f0f0f0;
         border:none;
         background:#f0f0f0;
         height:10rem;
-        font-size:1.25rem;
-        line-height:1.5rem;
+        font-size:1rem;
+        line-height:1rem;
         padding:1rem 1.5rem;
         border-radius:1.5rem;
         outline:none;
@@ -1096,9 +1098,9 @@ $text-color-type3: #f0f0f0;
     }
     button {
       background:#000;
-      font-size:1.25rem;
+      font-size:1rem;
       border-radius:3.125rem;
-      height:4rem;
+      height:3.5rem;
       width:100%;
       color:#fff;
       font-weight:900;

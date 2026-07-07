@@ -32,6 +32,7 @@ const ExpPage: React.FC = () => {
                     <ul className="info">
                         <li><strong>company</strong>{selectedItem.company}</li>
                         <li><strong>launch</strong>{selectedItem.period}</li>
+                        <li><strong>part</strong>{selectedItem.part}</li>
                     </ul>
                 </div>
             </div>

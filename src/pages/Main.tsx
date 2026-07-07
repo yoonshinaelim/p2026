@@ -48,11 +48,13 @@ const Experience: React.FC = () => {
       });
     }
 
+    ScrollTrigger.refresh();
     // 컴포넌트 언마운트 시 ScrollTrigger 인스턴스 정리
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, [visibleData]); // visibleData가 변경되어 리스트가 다시 그려질 때 애니메이션 재설정
+  
   return (
     <main className="experience">
       <div className="listWrap">
