@@ -855,25 +855,15 @@ $text-color-type3: #f0f0f0;
 }
 
 .expPage {
-  padding:0 1rem;
-  margin-top:4rem;
-  @include respond-to(md) {
-    margin-top:4.55rem;
-    padding:1rem 2.5rem;
-  }
   .titleBox {
-    height:50vh;
+    height:100vh;
     display: flex;
     flex-flow:column;
     justify-content:center;
     align-items: center;
     background-size:cover;
     background-attachment:scroll;
-    background-position:center;
-    border-radius:1.875rem;;
-    @include respond-to(md) {    
-      height:80vh;
-    }
+    background-position:center bottom;
   }
   .title1 {
     font-size:2.5rem;
@@ -899,9 +889,9 @@ $text-color-type3: #f0f0f0;
    .txtBox {
     display:flex;
     flex-flow:column;
-    padding:3rem 0;
+    padding:3rem 1rem;
     @include respond-to(lg){
-      padding:6.25rem 0;
+      padding:6.25rem 2.5rem;
       flex-flow:row;
     }
     
