@@ -431,15 +431,15 @@ $text-color-type3: #f0f0f0;
           display:inline-block;
           width:2rem;
           height:2rem;
-          line-height:2.5rem;
+          line-height:2.4rem;
           font-size:0.8rem;
           text-align:center;
           font-weight:bold;
           @include respond-to(md) {   
-            font-size:1.5625rem;
-            width:3.75rem;
-            height:3.75rem;
-            line-height:4.375rem;
+            font-size:1.3rem;
+            width:3.5rem;
+            height:3.5rem;
+            line-height:4rem;
           }
         }
         h3 {
@@ -448,18 +448,18 @@ $text-color-type3: #f0f0f0;
           margin-top:1rem;
           line-height:1.6;
           @include respond-to(md) {
-           font-size:2rem;
+           font-size:1.75rem;
            margin-top:3.125rem;
           }
         }
         p {
           font-size:1rem;
           font-family:'NotoSans';
-          margin-top:1rem;
+          margin-top:0.5rem;
           line-height:1.6;
            @include respond-to(md) {
-          font-size:1.5rem;
-          margin-top:1.25rem;
+          font-size:1.45rem;
+          margin-top:1rem;
           }
         }
       }
@@ -704,7 +704,6 @@ $text-color-type3: #f0f0f0;
       color:#fff;
       margin-top:1rem;
       font-family:'NotoSans';
-      font-weight:bold;
       text-align:center;
       padding:0 1rem;
       word-break:keep-all;
