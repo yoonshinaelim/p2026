@@ -5,9 +5,9 @@
 $bg-color-type1: #fff;
 $bg-color-type2: #000;
 $bg-color-type3: #fff;
-$bg-color-type4: #13df49;
+$bg-color-type4: #f0f0f0;
 $text-color-type2: #fff; 
-$text-color-type3: #13df49; 
+$text-color-type3: #f0f0f0; 
 
 // common
 .br{
@@ -59,7 +59,7 @@ $text-color-type3: #13df49;
   &__home {
     position:absolute;
     font-size:1.5rem;
-    top:1.3rem;
+    top:1.2rem;
     left:1rem;
     font-weight:bold;
     @include respond-to(lg) {
@@ -73,7 +73,7 @@ $text-color-type3: #13df49;
     display:block;
     width:2rem;
     height:1.5rem;
-    top:1.3rem;
+    top:1.2rem;
     right:1rem;
     z-index:1000;
     @include respond-to(lg) {
@@ -155,7 +155,7 @@ $text-color-type3: #13df49;
       margin:1.5rem;
     }
     li a {
-      font-size:3rem;
+      font-size:3.25rem;
       @include respond-to(md) {
        font-size:5rem;
       }
@@ -237,411 +237,6 @@ $text-color-type3: #13df49;
       
   }
 }
-// main
-.main {
-  section[class*="section"] {
-    position:relative;
-    height:100vh;
-    z-index:1;
-
-  }
-  &__section1 {
-    position:relative;
-    display:flex;
-    flex-flow:column;
-    justify-content: space-around;
-    .title {
-        position:relative;
-        font-size:2.7rem;
-        text-transform:uppercase;
-        padding:0 1rem;
-        z-index:2;
-        overflow:hidden;
-        @include respond-to(md) {
-         font-size:6rem;
-         padding:0 1rem;
-        }
-        @include respond-to(lg) {  
-          display:block;
-          position:absolute;
-          top:0;
-          left:0;
-          right:0;
-          margin:0 auto;
-          font-size:7.5rem;
-          padding:0 2.5rem;
-          white-space: nowrap;
-        }
-        @include respond-to(xl) {  
-          font-size:14rem;
-          white-space: nowrap;
-        }
-    }
-    .img_bird {
-      display:none;
-      position:relative;
-      display:inline-block;
-      width:100%;
-      height:16rem;
-      margin:2rem 0;
-      z-index:0;
-      transform-origin: center center;
-      animation: birdSwing 3s steps(1, end) infinite;
-      overflow:hidden;
-
-      @include respond-to(md) {
-        height:30rem;
-      }
-      @include respond-to(lg) {
-        position:absolute;
-        width:42rem;
-        height:30rem;
-        top:12rem;
-        right:3rem;
-        left:auto;
-        margin:auto;
-      }
-      @include respond-to(xl) {
-        width:48.3125rem;
-        height:34.75rem;
-        top:17rem;
-        right:8rem;
-      }
-
-      .img_bird_inner {
-        width:100%;
-        height:100%;
-        background:$bg-color-type1 url(../assets/main/img_bird.png) no-repeat center;
-        background-size: auto 100%;
-        transform-origin: center center;
-      }
-    }
-
-    @keyframes birdSwing {
-      0%, 100% {
-        transform: rotate(-10deg);
-      }
-      25% {
-        transform: rotate(0deg);
-      }
-      50% {
-        transform: rotate(-10deg);
-      }
-      75% {
-        transform: rotate(0deg);
-      }
-    }
-    .box {
-      padding-bottom:3rem;
-        @include respond-to(md) {
-          width:100%;
-          padding:0 2.5rem 5.5rem;
-          }
-          @include respond-to(lg) {
-          position:absolute;
-          bottom:0;
-          width:100%;
-          }
-
-        &__txt {
-        position:relative;
-        font-size:2.15rem;
-        line-height:1.5;
-        font-weight:900;
-        margin:0 1rem;
-        line-height:1.3;
-        @include respond-to(md) {
-          font-size:4rem;
-        }
-        @include respond-to(lg) {
-          font-size:5rem;
-          margin-top:9.375rem;
-        }
-      }
-      .underline{
-        position:relative;
-        &:before {
-          content:'';
-          position:absolute;
-          height:0.8rem;
-          width:100%;
-          display:block;
-          top:50%;
-          transform:translateY(-50%);
-          background:$text-color-type3;
-          border-radius:1.875rem;
-          z-index:0;
-          @include respond-to(md) {
-            height:1.5rem;
-          }
-          @include respond-to(lg) {
-            height:2.25rem;
-          }
-        }
-        u {
-          position:relative;
-          text-decoration:none;
-          z-index:1;
-          font-weight:900;
-          left:0.4rem;
-          @include respond-to(lg) {
-          left:0.625rem;
-          }
-        }
-      } 
-      &__btn {
-        position:relative;
-        display:block;
-        padding:0.8rem 2.5rem;
-        font-size:1rem;
-        border-radius:3.125rem;
-        color:#fff;
-        background:#000;
-        text-align:center;
-        text-transform:uppercase;
-        font-weight:900;
-        margin-top:2rem;
-        margin-left:1rem;
-        z-index:1;
-        @include respond-to(md) {
-          font-size:1.375rem;
-          margin-top:2.5rem;
-          padding:1rem 3rem;
-        }
-         @include respond-to(lg) {
-          font-size:1.5625rem;
-          margin-top:3.75rem;
-        }
-      } 
-    }
-  }
-  &__section2 {
-    position:absolute;
-    top:0;
-    left:0;
-    display:flex;
-    flex-flow:column;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    height:100vh;
-    background:#000;
-    overflow:hidden;
-    z-index:1;
-    .box {
-     position:absolute;
-      background:#000;
-      width:100%;
-      height:100%;
-    }
-    [class*="txt"] {
-      color:#fff;
-      z-index:999;
-      font-weight:bold;
-      font-size:1.25rem;
-      line-height:1.6;
-      text-align:center;
-      opacity:0;
-      position:absolute;
-      left:0;
-      right:0;
-      margin:0 auto;
-      @include respond-to(md) {
-        font-size:2rem;
-      }
-      @include respond-to(lg) {
-        font-size:2.25rem;
-      }
-     }
-     .lst_keyword {
-      white-space:nowrap;
-      li {
-        color:$text-color-type3;
-        display:inline-block;
-        font-size:1.5rem;
-        margin:auto 0.625rem;
-        font-weight:900;
-        @include respond-to(md) {
-          font-size:2.5rem;
-          margin:0 1.4375rem;
-        }
-      }
-      &.left {
-        position:absolute;top:1.25rem;
-      }
-      &.right {
-        position:absolute;bottom:1.25rem;
-      }
-    } 
-    .circle {
-      position:absolute;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:$text-color-type3;
-      width:6.25rem;
-      height:6.25rem;
-      border-radius:50%;
-    }
-    .circle2 {
-      background:#000;
-      width:3.125rem;
-      height:3.125rem;
-      border-radius:50%;
-    }
-  }
-  &__section3 {
-    display:flex;
-    flex-flow:column;
-    justify-content:center;
-    align-items:center;
-    background-image:url(../assets/main/bg_sec3.png);
-    background-repeat:no-repeat;
-    background-position:center;
-    background-attachment:scroll;
-    background-size:auto 100%;
-    @include respond-to(lg) {
-      background-attachment:fixed;
-      background-size:cover;
-    }
-    .tit {
-      font-size:2.5rem;
-      color:#fff;
-      text-transform:uppercase;
-      text-align:center;
-      line-height:1.2;
-      font-weight:900;
-      overflow:hidden;
-      @include respond-to(md) {
-        font-size:6rem;
-      }
-      @include respond-to(lg){
-        font-size:7.5rem;
-      }
-    }
-    .txt {
-      font-size:1rem;
-      color:#fff;
-      margin-top:1rem;
-      font-family:'NotoSans';
-      font-weight:bold;
-      text-align:center;
-      padding:0 1rem;
-      word-break:keep-all;
-      line-height:1.6;
-      overflow:hidden;
-      @include respond-to(md){
-        font-size:2rem;
-        margin-top:3.125rem;
-      }
-    }
-    .btn {
-      display:inline-block;
-      width:3rem;
-      height:3rem;
-      background:url(../assets/main/btn_arrow.png) no-repeat 0 0;
-      background-size:100% auto;
-      margin-top:4rem;
-      overflow:hidden;
-      @include respond-to(md) { 
-        width:5.4375rem;
-        height:5.4375rem;
-        margin-top:6.25rem;
-      }
-    }
-  }
-  &__section4 {
-    display:flex;
-    flex-flow:column;
-    justify-content:space-evenly;
-    .tit {
-      font-size:2.5rem;
-      text-transform:uppercase;
-      text-align:center;
-      font-weight:900;
-      line-height:1;
-      word-break:keep-all;
-      padding:0 1rem;
-      @include respond-to(md) {
-        font-size:5.5rem;
-      }
-      @include respond-to(lg) {
-        font-size:7.5rem;
-      }
-
-    }
-    .lst_project {
-      display:flex;
-      flex-flow:row;
-      align-items:flex-end;
-      li {
-        padding-left:1rem;
-        &:last-child {
-          padding-right:1rem;
-        }
-        @include respond-to(md) {
-          padding-left:2.5rem;
-          &:last-child {
-            padding-right:2.5rem;
-          }
-        }
-        button {
-          position:relative;
-          width:20rem;
-          height:28rem;
-          background:#000;
-          border-radius:3.125rem;
-          @include respond-to(md) {
-            width:30rem;
-            height:30rem;
-          }
-          .box {
-            position:absolute;
-            text-align:left;
-            width:100%;
-            height:100%;
-            top:0;
-            left:0;
-            
-            .title1 {
-              position:absolute;
-              top:2.5rem;
-              left:2.5rem;
-              display:block;
-              color:#fff;
-              font-size:1rem;
-              font-weight:bold;
-              text-transform:uppercase;
-              white-space:nowrap;
-              text-overflow: ellipsis;
-              overflow:hidden;
-              @include respond-to(md) {
-                font-size:1.5rem;
-              }
-            }
-            .title2 {
-              position:absolute;
-              left:2.5rem;
-              bottom:2.5rem;
-              display:block;
-              color:#fff;
-              font-size:2rem;
-              font-weight:bold;
-              line-height:1.2;
-              
-              @include respond-to(md) {
-              }
-              @include respond-to(lg) {
-                 font-size:2.5rem;
-              }
-            }
-          }
-        }
-
-      }
-    }
-  }
-}
 
 // about
 .about {
@@ -660,7 +255,7 @@ $text-color-type3: #13df49;
     background:url(../assets/page/bg_about.jpg);
     background-attachment:scroll;
     background-repeat: no-repeat;
-    background-size:auto 100%;
+    background-size:cover;
     @include respond-to(lg) {
       background-size:cover;
       background-attachment:fixed;
@@ -701,8 +296,9 @@ $text-color-type3: #13df49;
         border-radius:3rem;
         font-size:1rem;
         font-weight:bold;
-        padding:0.8rem 2rem;
+        padding:0.65rem 1.75rem;
         margin-top:2rem;
+        color:#000;
         @include respond-to(md) {
           font-size:1.25rem;
           padding:1rem 2.5rem;
@@ -736,7 +332,7 @@ $text-color-type3: #13df49;
     height:100vh;
     overflow:hidden;
     z-index:1;
-      background:$bg-color-type3;
+    background:#111;
     margin-top:100vh;
     .box {
      position:absolute;
@@ -745,7 +341,7 @@ $text-color-type3: #13df49;
       height:100%;
     }
     [class*="txt"] {
-      color:#000;
+      color:#fff;
       z-index:999;
       font-weight:bold;
       font-size:1.25rem;
@@ -766,7 +362,7 @@ $text-color-type3: #13df49;
      .lst_keyword {
       white-space:nowrap;
       li {
-        color:#000;
+        color:$text-color-type3;
         display:inline-block;
         font-size:1.5rem;
         margin:auto 0.625rem;
@@ -788,13 +384,13 @@ $text-color-type3: #13df49;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:#000;
+      background:$bg-color-type4;
       width:6.25rem;
       height:6.25rem;
       border-radius:50%;
     }
     .circle2 {
-      background:$bg-color-type3;
+      background:#111;
       width:3.125rem;
       height:3.125rem;
       border-radius:50%;
@@ -804,9 +400,9 @@ $text-color-type3: #13df49;
     position:relative;
     z-index:1;
     padding:3rem 0;
-    background:#000;
+    background:#111;
     @include respond-to(lg) {
-      padding:15.625rem 0;
+      padding:5rem 0;
     }
     .skill {
       padding:0 1rem;
@@ -814,12 +410,12 @@ $text-color-type3: #13df49;
       margin:0 auto;
       display:flex;
       flex-flow:column;
-      gap:1rem;
-        @include respond-to(xl) {
-          flex-flow:row;
-          gap:3.125rem;
-          padding:0 2.5rem;
-        }
+      gap:1.5rem;
+      @include respond-to(xl) {
+        flex-flow:row;
+        gap:3.125rem;
+        padding:0 2.5rem;
+      }
       li {
         background:#fff;
         border-radius:3.125rem;
@@ -830,12 +426,12 @@ $text-color-type3: #13df49;
           }
         span {
           border-radius:50%;
-          background:#000;
+          background:#111;
           color:#fff;
           display:inline-block;
           width:2rem;
           height:2rem;
-          line-height:2.5rem;
+          line-height:2.4rem;
           font-size:0.8rem;
           text-align:center;
           font-weight:bold;
@@ -876,13 +472,13 @@ $text-color-type3: #13df49;
     flex-flow:column;
     justify-content:center;
     padding:3rem 0;
-    background:$bg-color-type3;
+    background:#f0f0f0;
     @include respond-to(lg) {
-      padding:6.25rem 0;
+      padding:12.5rem 0;
     }
     .tit1 {
       text-align:center;
-      font-size:2.5rem;
+      font-size:2.75rem;
       font-weight:900;
       overflow:hidden;
       @include respond-to(md) {
@@ -904,25 +500,33 @@ $text-color-type3: #13df49;
       }
     }
     .box {
-      background:#f0f0f0;
+      background:#fff;
       border-radius:3.125rem;
       text-align:center;
-      padding:2rem 0;
+      padding:3rem 0;
       margin:2rem 1rem 0;
        @include respond-to(lg) {
-        width:45rem;
-        padding:4rem 0;
-        margin:6.25rem auto 0;
+        width:40rem;
+        padding:7rem 0;
+        margin:3rem auto 0;
       }
       h4 {
-        font-size:1.5rem;
+        font-size:2rem;
         line-height:1.2;
         font-weight:900;
         @include respond-to(md) {
-          font-size:2.5rem;
+          font-size:3rem;
         }
       }
-    
+      p {
+        font-size:1rem;
+        line-height:1.2;
+        margin-top:0.5rem;
+        @include respond-to(md) {
+          font-size:1.25rem;
+          margin-top:1rem;
+        }
+      }
       .count {
         position:relative;
         margin:2rem auto 0;
@@ -996,38 +600,25 @@ $text-color-type3: #13df49;
       height: 10rem;
       text-align: center;
     }
-      p {
-        font-size:1rem;
-        line-height:1.2;
-        margin-top:2rem;
-        font-weight:bold;
-        @include respond-to(md) {
-          font-size:2rem;
-        margin-top:3.125rem;
-        }
-
-      }
+      
     }
   }
   &__section5 {
     position:relative;
     z-index:1;
-    padding:5rem 0 10rem;
+    padding:3rem 0;
     background:$bg-color-type3;
     @include respond-to(md) {
       padding:12.5rem 0;
     }
-    
     .tit1 {
         font-size:2.5rem;
         text-align:center;
-        margin-top:2rem;
         font-weight:900;
         overflow:hidden;
         @include respond-to(md) {
           font-size:7.5rem;
           line-height:1;
-          margin-top:12.5rem;
         }
     }
     .tbl {
@@ -1080,15 +671,15 @@ $text-color-type3: #13df49;
     flex-flow:column;
     justify-content:center;
     align-items:center;
-    // background-image:url(../assets/main/bg_sec3.png);
     background-image:url(../assets/page/bg_sea.png);
     background-repeat:no-repeat;
     background-position:center;
     background-attachment:scroll;
-    background-size:auto 100%; 
-    height:80vh;
+    background-size:cover; 
     z-index:1;
+    height:50vh;
     @include respond-to(lg) {
+     height:80vh;
       background-attachment:fixed;
       background-size:cover;
     }
@@ -1130,7 +721,7 @@ $text-color-type3: #13df49;
       height:3rem;
       background:url(../assets/main/btn_arrow.png) no-repeat 0 0;
       background-size:100% auto;
-      margin-top:4rem;
+      margin-top:2rem;
       overflow:hidden;
       @include respond-to(md) { 
         width:5.4375rem;
@@ -1272,7 +863,7 @@ $text-color-type3: #13df49;
     padding:1rem 2.5rem;
   }
   .titleBox {
-    height:90vh;
+    height:50vh;
     display: flex;
     flex-flow:column;
     justify-content:center;
@@ -1281,7 +872,7 @@ $text-color-type3: #13df49;
     background-attachment:scroll;
     border-radius:1.875rem;;
     @include respond-to(md) {    
-      height:46rem;
+      height:80vh;
     }
   }
   .title1 {
