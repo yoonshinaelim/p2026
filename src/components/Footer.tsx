@@ -8,7 +8,7 @@ const Footer = () => {
                 <dt>email</dt>
                 <dd><a href="mailto:ysal77@naver.com">ysal77@naver.com</a></dd>
             </dl>
-            <p className="footer__copy">&copy;2026 윤신애림.</p>
+            <p className="footer__copy">&copy;2026 YOON.</p>
          </footer>
  )
 }
