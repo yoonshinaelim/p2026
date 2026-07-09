@@ -839,7 +839,7 @@ $text-color-type3: #f0f0f0;
             bottom:2.5rem;
             padding:0 2rem;
             @include respond-to(md) {
-              font-size:1.25rem;
+              font-size:2rem;
               padding:0 2.5rem;
             }
               @include respond-to(lg) {   
@@ -905,13 +905,14 @@ $text-color-type3: #f0f0f0;
         margin-top:1.5rem;
        @include respond-to(lg) {
         margin-top:0;
-        margin-left:5rem;
+        margin-left:8rem;
       }
       li {
         font-size:1rem;
         margin-top:0.5rem;
         @include respond-to(lg){
             font-size:1rem;
+        margin-top:1rem;
         }
         strong {
           font-size:1rem;
@@ -922,6 +923,9 @@ $text-color-type3: #f0f0f0;
             font-size:1rem;
             margin-right:1rem;
           }
+        }
+        &:first-child {
+          margin-top:0;
         }
       }
    }
@@ -959,7 +963,15 @@ $text-color-type3: #f0f0f0;
       }
     }
    }
+   
+  .imgBox {
+    font-size:0;
+    img {
+      width:100%;
+    }
+  }
 }
+
 .emptyPage {
   padding:12.5rem 3.125rem;
   text-align:center;

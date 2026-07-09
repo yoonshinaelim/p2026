@@ -1,9 +1,13 @@
+import React, { useState } from 'react'; // useState 추가
 import { useParams, useNavigate } from 'react-router-dom';
 import { experienceData } from '../data/experienceData';
 
 const ExpPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
+    
+    // 이미지 로드 성공 여부를 관리할 상태값 추가 (기본값은 true)
+    const [imgExists, setImgExists] = useState(true);
 
     const selectedItem = experienceData.find(item => item.id === Number(id));
     if (!selectedItem) {
@@ -16,6 +20,9 @@ const ExpPage: React.FC = () => {
     }
     const getImageUrl = (itemId: number) => {
         return new URL(`../assets/exp/page/bg${itemId}.jpg`, import.meta.url).href;
+    };
+    const getImageUrl2 = (itemId: number) => {
+        return new URL(`../assets/exp/spage/bg${itemId}.jpg`, import.meta.url).href;
     };
     return (
         <main className="expPage">
@@ -36,6 +43,17 @@ const ExpPage: React.FC = () => {
                     </ul>
                 </div>
             </div>
+            
+            {/* imgExists가 true일 때만 imgBox 전체를 렌더링합니다 */}
+            {imgExists && (
+                <div className="imgBox">
+                    <img 
+                        src={getImageUrl2(selectedItem.id)} 
+                        alt={selectedItem.subtitle} 
+                        onError={() => setImgExists(false)} // 이미지 로드 실패 시 상태값 변경
+                    />
+                </div>
+            )}
         </main>
     );
 };
