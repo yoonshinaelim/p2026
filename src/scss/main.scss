@@ -1071,30 +1071,26 @@ $text-color-type3: #f0f0f0;
   max-width:1360px;
   display:flex;
   flex-flow:column;
-  flex:1;
   margin:4rem auto 0;
   padding:1rem 1rem 4rem;
   background:#fff;
   z-index:2;
   @include respond-to(lg) {
-    flex-flow:column;
+    padding:1rem 2.5rem 4rem;
     margin-top:4.55rem;
-    padding:2rem 2.5rem 12rem;
+     flex-flow:row;
   }
   @include respond-to(xl) {
-    flex-flow:column;
-    padding:2rem 2.5rem 12rem;
+    padding:1rem 0 4rem;
   }
   &__title {
-    @include respond-to(xl) {
-      // width:50%;
-    }
+    width:45%;
     .tit {
       font-size:2.5rem;
       line-height:1;
       overflow:hidden;
       @include respond-to(lg) {
-        font-size:7.5rem;
+        font-size:5rem;
       }
     }
     .txt {
@@ -1102,7 +1098,7 @@ $text-color-type3: #f0f0f0;
       line-height:1.5;
       margin-top:0.5rem;
       @include respond-to(lg) {
-        font-size:2.5rem;
+        font-size:1.75rem;
         margin-top:1rem;
       }
     }
@@ -1111,9 +1107,9 @@ $text-color-type3: #f0f0f0;
     display:flex;
     flex-flow:column;
     margin-top:2rem;
-    @include respond-to(xl){
-      // width:50%;
+    @include respond-to(lg){
       margin-top:0;
+      width:55%;
     }
     div {
       margin-top:0.5rem;
