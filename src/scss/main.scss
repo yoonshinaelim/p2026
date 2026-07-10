@@ -205,14 +205,48 @@ $text-color-type3: #f0f0f0;
     }
   .btn_top {
       position:fixed;
-      right:2.5rem;
-      bottom:2.5rem;
-      width:80px;
-      height:80px;
+      right:1rem;
+      bottom:1rem;
+      width:2.5rem;
+      height:2.5rem;
       border-radius:50px;
       background:#000;
       color:#fff;
-    
+      visibility:hidden;
+      opacity:0;
+      transition:all .3s;
+      @include respond-to(lg){
+        width:3.75rem;
+        height:3.75rem;
+        right:2.5rem;
+        bottom:2.5rem;
+      }
+    &:after, &:before {
+      content:'';
+      position:absolute;
+      display:inline-block;
+      width:0.75rem;
+      height:0.25rem;
+      border-radius:0.3125rem;
+      background:#fff;
+      @include respond-to(lg) {
+        width:1.0625rem;
+        height:0.3125rem;
+      }
+    }
+    &:after {
+      top:50%;
+      transform:translate(-25%, -65%) rotate(45deg);
+      
+    }
+    &:before {
+      top:50%;
+      transform:translate(-85%, -65%) rotate(-45deg);
+    }
+    &.on {
+      visibility:visible;
+      opacity:1;
+    }
   }
   &__info{
     overflow:hidden;
@@ -771,7 +805,7 @@ $text-color-type3: #f0f0f0;
   background:#fff;
   z-index:2;
   margin-top:4rem;
-  padding:0 1.5rem 3rem;
+  padding:0 1rem 3rem;
   @include respond-to(lg) {
   margin-top:4.55rem;
   padding:0rem 2.5rem 6rem;
@@ -839,11 +873,11 @@ $text-color-type3: #f0f0f0;
           top:0;
           left:0;
           z-index:1;
-          padding:2.5rem 2rem;
+          padding:2rem;
           text-align:left;
           overflow:hidden;
             @include respond-to(lg) {
-            padding:3.75rem 2.5rem;
+            padding:2.5rem;
           }
           .title1 {
             display:block;
@@ -879,7 +913,7 @@ $text-color-type3: #f0f0f0;
             }
               @include respond-to(lg) {   
               font-size:2.5rem;
-              bottom:3.75rem;
+              bottom:2.5rem;
               }
           }
         }
