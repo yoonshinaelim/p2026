@@ -2,6 +2,7 @@
 const Footer = () => {
  return (
         <footer className="footer">
+            <button className="btn_top">top</button>
             <dl className="footer__info">
                 <dt>phone</dt>
                 <dd><a href="tel:01073704505">010 7370 4505</a></dd>

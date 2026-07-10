@@ -25,7 +25,7 @@ const ExpPage: React.FC = () => {
         return new URL(`../assets/exp/spage/bg${itemId}.jpg`, import.meta.url).href;
     };
     return (
-        <main className="expPage">
+        <main className="expage">
             <div className="titleBox" style={{ backgroundImage: `url(${getImageUrl(selectedItem.id)})` }}>
                 <h2 className="title1">{selectedItem.title1}</h2>
                 <h3 className="title2">{selectedItem.title2}</h3>

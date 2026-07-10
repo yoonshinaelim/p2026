@@ -52,9 +52,32 @@ $text-color-type3: #f0f0f0;
   @include respond-to(lg) {
   height:4.55rem;
   }
+ &.white {
+  .header__home{
+    color:#fff;
+  }
+  .header__menu {
+    &:after, &:before{
+      background:#fff;
+    }
+    &.on {
+      &:after, &:before{
+        background:#000;
+      } 
+    }
+  }
+ }
  &.on{
-    background:rgba(255,255,255,0.8);
+    background:rgba(255,255,255,0.75);
     transition:all .3s;
+    .header__home {
+      color:#000;
+    }
+    .header__menu {
+      &:after, &:before{
+        background:#000;
+      }
+    }
   }
   &__home {
     position:absolute;
@@ -121,6 +144,7 @@ $text-color-type3: #f0f0f0;
       &:after {
         transform: rotate(45deg);
         top: 0.875rem;
+        background:#000;
       }
       &:before {
         transform: rotate(-45deg);
@@ -179,6 +203,17 @@ $text-color-type3: #f0f0f0;
     padding:6.25rem 2.5rem;
     position:relative;
     }
+  .btn_top {
+      position:fixed;
+      right:2.5rem;
+      bottom:2.5rem;
+      width:80px;
+      height:80px;
+      border-radius:50px;
+      background:#000;
+      color:#fff;
+    
+  }
   &__info{
     overflow:hidden;
     dt {
@@ -739,7 +774,7 @@ $text-color-type3: #f0f0f0;
   padding:0 1.5rem 3rem;
   @include respond-to(lg) {
   margin-top:4.55rem;
-  padding:2rem 2.5rem 6rem;
+  padding:0rem 2.5rem 6rem;
   }
   .title {
     font-size:2.5rem;
@@ -754,7 +789,7 @@ $text-color-type3: #f0f0f0;
   }
   .listWrap {
     width: 100%;
-   max-width: 1400px;
+   max-width: 1360px;
     margin:0 auto; 
 
   .list {
@@ -849,12 +884,10 @@ $text-color-type3: #f0f0f0;
           }
         }
       }
+    }
   }
 }
-
-}
-
-.expPage {
+.expage {
   .titleBox {
     height:100vh;
     display: flex;
@@ -890,6 +923,8 @@ $text-color-type3: #f0f0f0;
     display:flex;
     flex-flow:column;
     padding:3rem 1rem;
+    max-width:1360px;
+    margin:0 auto;
     @include respond-to(lg){
       padding:6.25rem 2.5rem;
       flex-flow:row;
@@ -898,7 +933,7 @@ $text-color-type3: #f0f0f0;
    }
    .flexBox:nth-child(1) {
     @include respond-to(lg){
-      width:60%;
+      width:65%;
     }
    }
    .info {
@@ -929,7 +964,7 @@ $text-color-type3: #f0f0f0;
         }
       }
    }
-   .subtitle{
+   .subtitle {
     font-size:1.75rem;
     word-break:keep-all;
     font-weight:bold;
@@ -967,7 +1002,13 @@ $text-color-type3: #f0f0f0;
   .imgBox {
     font-size:0;
     img {
-      width:100%;
+        width: 160%;
+        transform: translateX(-50%);
+        position: relative;
+        left: 50%; 
+      @include respond-to(lg){
+        width:100%;
+      }
     }
   }
 }
@@ -993,10 +1034,11 @@ $text-color-type3: #f0f0f0;
 //Contact
 .contact {
   position:relative;
+  max-width:1360px;
   display:flex;
   flex-flow:column;
   flex:1;
-  margin-top:4rem;
+  margin:4rem auto 0;
   padding:1rem 1rem 4rem;
   background:#fff;
   z-index:2;
@@ -1006,12 +1048,12 @@ $text-color-type3: #f0f0f0;
     padding:2rem 2.5rem 12rem;
   }
   @include respond-to(xl) {
-    flex-flow:row;
+    flex-flow:column;
     padding:2rem 2.5rem 12rem;
   }
   &__title {
     @include respond-to(xl) {
-      width:50%;
+      // width:50%;
     }
     .tit {
       font-size:2.5rem;
@@ -1036,7 +1078,7 @@ $text-color-type3: #f0f0f0;
     flex-flow:column;
     margin-top:2rem;
     @include respond-to(xl){
-      width:50%;
+      // width:50%;
       margin-top:0;
     }
     div {
