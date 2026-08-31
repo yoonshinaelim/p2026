@@ -401,7 +401,7 @@ $text-color-type3: #333;
     height:100vh;
     overflow:hidden;
     z-index:1;
-    background:#111;
+    background:#272625;
     margin-top:100vh;
     .box {
      position:absolute;
@@ -431,7 +431,7 @@ $text-color-type3: #333;
      .lst_keyword {
       white-space:nowrap;
       li {
-        color:$text-color-type3;
+        color:#5e5e5f;
         display:inline-block;
         font-size:1.5rem;
         margin:auto 0.625rem;
@@ -453,13 +453,13 @@ $text-color-type3: #333;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:$bg-color-type4;
+      background:#3f4040;
       width:6.25rem;
       height:6.25rem;
       border-radius:50%;
     }
     .circle2 {
-      background:#111;
+      background:#272625;
       width:3.125rem;
       height:3.125rem;
       border-radius:50%;
@@ -469,9 +469,9 @@ $text-color-type3: #333;
     position:relative;
     z-index:1;
     padding:3rem 0;
-    background:#111;
+    background:#272625;
     @include respond-to(lg) {
-      padding:5rem 0;
+      padding:8rem 0;
     }
     .skill {
       padding:0 1rem;
@@ -495,7 +495,7 @@ $text-color-type3: #333;
           }
         span {
           border-radius:50%;
-          background:#111;
+          background:#272625;
           color:#fff;
           display:inline-block;
           width:2rem;
@@ -541,7 +541,7 @@ $text-color-type3: #333;
     flex-flow:column;
     justify-content:center;
     padding:3rem 0;
-    background:#f1f1f1;
+    background:#e4e7ec;
     @include respond-to(lg) {
       padding:12.5rem 0;
     }
@@ -675,7 +675,7 @@ $text-color-type3: #333;
     position:relative;
     z-index:1;
     padding:3rem 0;
-    background:$bg-color-type3;
+    background:#e4e7ec; 
     @include respond-to(md) {
       padding:12.5rem 0;
     }
@@ -747,7 +747,7 @@ $text-color-type3: #333;
     z-index:1;
     height:50vh;
     @include respond-to(lg) {
-     height:50vh;
+     height:60vh;
       background-attachment:fixed;
       background-size:cover;
     }
