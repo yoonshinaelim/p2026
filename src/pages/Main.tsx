@@ -20,8 +20,6 @@ const Experience: React.FC = () => {
   useEffect(() => {
     if (!listRef.current) return;
 
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
     const listItems = listRef.current.querySelectorAll('li');
     
     if (listItems && listItems.length > 0) {
