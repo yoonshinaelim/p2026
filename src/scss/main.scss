@@ -5,9 +5,9 @@
 $bg-color-type1: #fff;
 $bg-color-type2: #000;
 $bg-color-type3: #fff;
-$bg-color-type4: #f0f0f0;
+$bg-color-type4: #222;
 $text-color-type2: #fff; 
-$text-color-type3: #f0f0f0; 
+$text-color-type3: #333; 
 
 // common
 .br{
@@ -425,7 +425,7 @@ $text-color-type3: #f0f0f0;
         font-size:2rem;
       }
       @include respond-to(lg) {
-        font-size:2.25rem;
+        font-size:2rem;
       }
      }
      .lst_keyword {
@@ -541,7 +541,7 @@ $text-color-type3: #f0f0f0;
     flex-flow:column;
     justify-content:center;
     padding:3rem 0;
-    background:#f0f0f0;
+    background:#f1f1f1;
     @include respond-to(lg) {
       padding:12.5rem 0;
     }
@@ -551,7 +551,7 @@ $text-color-type3: #f0f0f0;
       font-weight:900;
       overflow:hidden;
       @include respond-to(md) {
-       font-size:7.5rem;
+       font-size:5.25rem;
        line-height:1;
       }
     }
@@ -576,7 +576,7 @@ $text-color-type3: #f0f0f0;
       margin:2rem 1rem 0;
        @include respond-to(lg) {
         width:40rem;
-        padding:7rem 0;
+        padding:5rem 0;
         margin:3rem auto 0;
       }
       h4 {
@@ -611,10 +611,9 @@ $text-color-type3: #f0f0f0;
         gap:0.5rem;
         line-height:11rem;
        @include respond-to(md) {
-        width:14rem;
-        font-size:6rem;
-        line-height:11.5rem;
-        height:10rem;
+        width:16rem;
+        font-size:7rem;
+        line-height:12.5rem;
         margin:3rem auto 0;
       
        }
@@ -630,7 +629,7 @@ $text-color-type3: #f0f0f0;
           z-index:0;
           border-radius:2rem;
           @include respond-to(md) {
-            width: 6.8rem;
+            width: 7.5rem;
           }
 
 
@@ -647,7 +646,7 @@ $text-color-type3: #f0f0f0;
           z-index:0;
           border-radius:2rem;
           @include respond-to(md) {
-            width: 6.8rem;
+            width: 7.5rem;
           }
 
        }
@@ -661,7 +660,7 @@ $text-color-type3: #f0f0f0;
       transition: transform 2s cubic-bezier(0.1, 0.8, 0.3, 1); /* 파칭코처럼 서서히 멈추는 느낌 */
       z-index:1;
         @include respond-to(md) {
-          width:6.8rem;
+          width:7.8rem;
         }
     }
 
@@ -686,7 +685,7 @@ $text-color-type3: #f0f0f0;
         font-weight:900;
         overflow:hidden;
         @include respond-to(md) {
-          font-size:7.5rem;
+          font-size:5.25rem;
           line-height:1;
         }
     }
@@ -697,8 +696,8 @@ $text-color-type3: #f0f0f0;
       @include respond-to(md) {
       }
       @include respond-to(lg) {
-        width:62.5rem;
-        margin:6.25rem auto 0;
+        width:40rem;
+        margin:5rem auto 0;
       }
       &__tr {
         display:flex;
@@ -712,17 +711,17 @@ $text-color-type3: #f0f0f0;
         dt {
           font-size:1rem;
           font-weight:bold;
-          line-height:1.6;
+          line-height:2;
           @include respond-to(md) {
-             width:30%;
-            font-size:2.1875rem;
+             width:14rem;
+            font-size:1.45rem;
           }
         }
         dd {
           font-size:1rem;
-          line-height:1.9;
+          line-height:2;
           @include respond-to(md) {
-           font-size:1.875rem;
+            font-size:1.45rem;
           }
         
         }
@@ -748,7 +747,7 @@ $text-color-type3: #f0f0f0;
     z-index:1;
     height:50vh;
     @include respond-to(lg) {
-     height:80vh;
+     height:50vh;
       background-attachment:fixed;
       background-size:cover;
     }
@@ -762,10 +761,10 @@ $text-color-type3: #f0f0f0;
       font-weight:900;
       overflow:hidden;
       @include respond-to(md) {
-        font-size:6rem;
+        font-size:4rem;
       }
       @include respond-to(lg){
-        font-size:7.5rem;
+        font-size:5.25rem;
       }
     }
     .txt {
@@ -779,8 +778,8 @@ $text-color-type3: #f0f0f0;
       line-height:1.6;
       overflow:hidden;
       @include respond-to(md){
-        font-size:2rem;
-        margin-top:3.125rem;
+        font-size:1.45rem;
+        margin-top:2rem;
       }
     }
     .btn {
@@ -792,9 +791,9 @@ $text-color-type3: #f0f0f0;
       margin-top:2rem;
       overflow:hidden;
       @include respond-to(md) { 
-        width:5.4375rem;
-        height:5.4375rem;
-        margin-top:6.25rem;
+        width:4rem;
+        height:4rem;
+        margin-top:3rem;
       }
     }
   }
