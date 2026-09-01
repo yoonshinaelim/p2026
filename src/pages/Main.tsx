@@ -82,9 +82,10 @@ const Experience: React.FC = () => {
       {/* 로딩 표시기 */}
       {isLoading ? (
         <div className="loading_box" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
-          <p>Loading...</p>
+          <p><span className="visually-hidden">Loading</span></p>
         </div>
       ) : (
+        
         <div className="listWrap">
           <ul className="list" ref={listRef}>
             {reversedData.map((item: ExperienceItem) => {
