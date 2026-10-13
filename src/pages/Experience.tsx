@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { experienceData, ExperienceItem } from '../data/experienceData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,49 +20,39 @@ const Experience: React.FC = () => {
   useEffect(() => {
     if (!listRef.current) return;
 
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    const context = gsap.context(() => {
+      const listItems = listRef.current?.querySelectorAll('li');
+      if (!listItems?.length) return;
 
-    const listItems = listRef.current.querySelectorAll('li');
-    
-    if (listItems && listItems.length > 0) {
-      listItems.forEach((item) => {
-        gsap.fromTo(item, 
-          { 
-            opacity: 0, 
-            y: 60 
+      gsap.fromTo(listItems,
+        { autoAlpha: 0, y: 48 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          stagger: 0.14,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: listRef.current,
+            start: 'top 80%',
+            once: true,
           },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            }
-          }
-        );
-      });
-    }
+        }
+      );
+    }, listRef);
 
-    const refreshTimeout = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 200);
-
-    return () => {
-      clearTimeout(refreshTimeout);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    return () => context.revert();
   }, []);
 
   return (
     <main className="experience">
+      <div className="title_box">
+          <h2 className="title">WORKS</h2>
+          <p className="text">감각적인 디테일과 완성도를 경험해 보세요.</p>
+      </div>
       <div className="listWrap">
         <ul className="list" ref={listRef}>
           {visibleData.map((item: ExperienceItem) => {
-            const isTargetId = [7, 11, 23].includes(item.id);
-            
             let imgSrc = '';
             try {
               imgSrc = new URL(`../assets/exp/list/bg${item.id}.jpg`, import.meta.url).href;
@@ -71,21 +61,13 @@ const Experience: React.FC = () => {
             }
 
             return (
-              <li key={item.id} style={{ opacity: 0 }}>
+              <li key={item.id}>
                 <div className="button_box">
                   <button type="button" onClick={() => handleNavigate(item.id)}>
-                    {imgSrc && (
-                      <img
-                        src={imgSrc}
-                        alt={item.title1}
-                      />
-                    )}
-                    {!isTargetId && (
-                      <span className="box">
+                      <span className="box" style={{ backgroundImage: `url(${imgSrc})` }}>
                         <strong className="title1">{item.title1}</strong>
                         <span className="title2">{item.title2}</span>
                       </span>
-                    )}
                   </button>
                 </div>
               </li>
