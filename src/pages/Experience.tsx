@@ -29,14 +29,7 @@ const Experience: React.FC = () => {
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.65,
-          stagger: 0.14,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: listRef.current,
-            start: 'top 80%',
-            once: true,
-          },
+          ease: 'power2.out'
         }
       );
     }, listRef);
@@ -64,7 +57,8 @@ const Experience: React.FC = () => {
               <li key={item.id}>
                 <div className="button_box">
                   <button type="button" onClick={() => handleNavigate(item.id)}>
-                      <span className="box" style={{ backgroundImage: `url(${imgSrc})` }}>
+                      <span className="box">
+                        <span className="img" style={{ backgroundImage: `url(${imgSrc})` }}><span className="visually-hidden">{item.title2}</span></span>
                         <strong className="title1">{item.title1}</strong>
                         <span className="title2">{item.title2}</span>
                       </span>
