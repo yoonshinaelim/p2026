@@ -330,6 +330,7 @@ $section_bg : #000;
     align-items:center;
     background:$section_bg;
     background-size:cover;
+    overflow:hidden;
     @include respond-to(lg) {
       background-size:cover;
       background-attachment:fixed;
@@ -393,7 +394,7 @@ $section_bg : #000;
         line-height:1.6;
         margin-top:10rem;
         padding:0 1rem;
-        @include respond-to(md) {
+        @include respond-to(lg) {
           font-size:1.25rem;
           margin-top:15rem;
           padding:0;
@@ -602,13 +603,13 @@ $section_bg : #000;
       text-align:center;
       padding:3rem 0;
       margin:2rem 1rem 0;
-       @include respond-to(lg) {
+       @include respond-to(md) {
         width:32rem;
         padding:5rem 0;
         margin:5rem auto 0;
       }
       .slot_title {
-        font-size:1rem;
+        font-size:1.25rem;
         line-height:1.2;
         font-weight:600;
         @include respond-to(md) {
@@ -935,7 +936,7 @@ $section_bg : #000;
   }
   .listWrap {
     width: 100%;
-   max-width: 1250px;
+   max-width: 1360px;
     margin:2rem auto 0; 
     @include respond-to(md) {
     margin:5rem auto 0; 
@@ -956,7 +957,7 @@ $section_bg : #000;
         width:100%;
         height:20rem;
         @include respond-to(md) {
-          height:32rem;
+          height:35rem;
         }
         .button_box {
           height:100%;
@@ -1204,8 +1205,6 @@ $section_bg : #000;
   position:relative;
   background:#000;
   z-index:2;
-  @include respond-to(lg) {
-  }
   &+.footer {
     --footer-bg: #fff;
     --footer-color: #000;
@@ -1214,14 +1213,14 @@ $section_bg : #000;
     align-items:center;
     margin: 2rem auto 0;
     padding:0 1rem 3rem;
-    @include respond-to(lg){
+    @include respond-to(md){
       margin-top:5rem;
       padding-bottom:5rem;
-      width: 50%;
+      width: 800px;
     }
     div {
       margin-top:0.8rem;
-      @include respond-to(lg){
+      @include respond-to(md){
         margin-top:1rem;
       }
       &:first-child {

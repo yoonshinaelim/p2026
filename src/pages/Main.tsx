@@ -59,8 +59,8 @@ const MainNew = () => {
 
                     // 모바일(1024이하)은 상하(y), 데스크톱은 좌우(xPercent) 이동
                     if (isMobile) {
-                        tl.to(elementsRef.current['left'], { y: -50, ease: 'none', duration: 0.2 }, 0)
-                          .to(elementsRef.current['right'], { y: 50, ease: 'none', duration: 0.2 }, 0);
+                        tl.to(elementsRef.current['left'], { y: -80, ease: 'none', duration: 0.2 }, 0)
+                          .to(elementsRef.current['right'], { y: 80, ease: 'none', duration: 0.2 }, 0);
                     } else {
                         tl.to(elementsRef.current['left'], { xPercent: -20, ease: 'none', duration: 0.2 }, 0)
                           .to(elementsRef.current['right'], { xPercent: 20, ease: 'none', duration: 0.2 }, 0);
@@ -88,12 +88,15 @@ const MainNew = () => {
             // Section 2: Pin & Text Twist
             const sec2 = sectionsRef.current['section2'];
             if (sec2) {
+                const getScrollEnd = () => "+=" + (sec2.offsetHeight * 4);
+
                 ScrollTrigger.create({ 
                     trigger: sec2, 
                     start: 'top top', 
-                    end: '+=400%', 
+                    end: getScrollEnd, 
                     pin: true, 
-                    pinSpacing: true 
+                    pinSpacing: true,
+                    invalidateOnRefresh: true,
                 });
                 
                 gsap.to(elementsRef.current['keywordLeft'], { 
@@ -102,8 +105,9 @@ const MainNew = () => {
                     scrollTrigger: { 
                         trigger: sec2, 
                         start: 'top top', 
-                        end: '+=400%', 
-                        scrub: 1 
+                        end: getScrollEnd, 
+                        scrub: 1,
+                        invalidateOnRefresh: true,
                     } 
                 });
 
@@ -113,8 +117,9 @@ const MainNew = () => {
                     scrollTrigger: { 
                         trigger: sec2, 
                         start: 'top top', 
-                        end: '+=400%', 
-                        scrub: 1 
+                        end: getScrollEnd, 
+                        scrub: 1,
+                        invalidateOnRefresh: true,
                     } 
                 });
 
@@ -122,8 +127,9 @@ const MainNew = () => {
                     scrollTrigger: { 
                         trigger: sec2, 
                         start: 'top top', 
-                        end: '+=400%', 
-                        scrub: 1
+                        end: getScrollEnd, 
+                        scrub: 1,
+                        invalidateOnRefresh: true,
                     } 
                 });
 
