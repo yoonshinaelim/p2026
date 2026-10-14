@@ -29,7 +29,6 @@ const MainNew = () => {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-
         // gsap.context 및 gsap.matchMedia를 사용해 반응형 및 리소스 관리
         const ctx = gsap.context(() => {
             const mm = gsap.matchMedia();
@@ -83,8 +82,6 @@ const MainNew = () => {
                         currentTime += 0.5; 
                     });
                 }
-            });
-
             // Section 2: Pin & Text Twist
             const sec2 = sectionsRef.current['section2'];
             if (sec2) {
@@ -244,6 +241,8 @@ const MainNew = () => {
             if(sec6 && btns?.length){
                 gsap.fromTo(btns, {opacity: 0, y: 30}, {opacity: 1, y: 0, ease: 'power2.out', scrollTrigger: {trigger: sec6, start : 'top 30%', toggleActions: 'play none none reverse'} });
             }
+            });
+
         });
 
         return () => {
