@@ -273,11 +273,13 @@ const MainNew = () => {
                 <span className="en_title">Why Me</span>
                 <h2 className="title1">대체될 수 없는<br />한 끗 차이의 깊이</h2>
                 <ul className="list">
-                    <li><span className="visually-hidden">kb국민은행</span></li>
-                    <li><span className="visually-hidden">현대카드</span></li>
-                    <li><span className="visually-hidden">SC제일은행</span></li>
-                    <li><span className="visually-hidden">신한카드</span></li>
-                    <li><span className="visually-hidden">롯데카드</span></li>
+                    <li><span className="visually-hidden">포토샵</span></li>
+                    <li><span className="visually-hidden">피그마</span></li>
+                    <li><span className="visually-hidden">HTML5</span></li>
+                    <li><span className="visually-hidden">CSS3</span></li>
+                    <li><span className="visually-hidden">JAVASCRIPT</span></li>
+                    <li><span className="visually-hidden">TYPESCRIPT</span></li>
+                    <li><span className="visually-hidden">REACT</span></li>
                 </ul>
             </section>
 

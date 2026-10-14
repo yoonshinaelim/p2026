@@ -346,9 +346,9 @@ $section_bg : #000;
         color:#fff;
         font-size:4.5rem;
         @include respond-to(sm) {
-          font-size:6rem;
+          font-size:7rem;
         }
-        @include respond-to(md) {
+        @include respond-to(lg) {
           font-size:8rem;
         }
         span {
@@ -359,9 +359,9 @@ $section_bg : #000;
           position:absolute;
           top:50%;
           left:50%;
-          transform:translate(-50%, -60%);
-          width:5rem;
-          height:5rem;
+          transform:translate(-50%, -70%);
+          width:7rem;
+          height:7rem;
           display:inline-block;
           @include respond-to(lg) {
             transform:translate(-25%, -65%);
@@ -522,8 +522,8 @@ $section_bg : #000;
         width:7rem;
         height:7rem;
         @include respond-to(md) {
-            width:9.6875rem;
-            height:9.6875rem;
+            width:9rem;
+            height:9rem;
         }
         &:nth-child(1) {
           top:0;
@@ -538,22 +538,48 @@ $section_bg : #000;
           background-size:100% auto;
         }
         &:nth-child(3) {
-          top:15rem;
+          top:10rem;
           left:0;
           background:url(../assets/page/img_main_logo3.png) no-repeat center center;
           background-size:100% auto;
+          @include respond-to(md) {
+            top:10rem;
+            left:-18rem;
+          }
         }
         &:nth-child(4) {
-          top:20rem;
+          top:15rem;
           right:0;
           background:url(../assets/page/img_main_logo4.png) no-repeat center center;
           background-size:100% auto;
+          @include respond-to(md) {
+            top:15rem;
+            right:-18rem;
+          }
         }
         &:nth-child(5) {
-          top:30rem;
+          top:20rem;
           left:0;
           background:url(../assets/page/img_main_logo5.png) no-repeat center center;
           background-size:100% auto;
+          @include respond-to(md) {
+            top:15rem;
+          }
+        }
+        &:nth-child(6) {
+          top:25rem;
+          right:0;
+          background:url(../assets/page/img_main_logo6.png) no-repeat center center;
+          background-size:100% auto;
+          @include respond-to(md) {
+            top:20rem;
+          }
+        }
+        &:nth-child(7) {
+          top:30rem;
+          left:0;
+          background:url(../assets/page/img_main_logo7.png) no-repeat center center;
+          background-size:100% auto; 
         }
       }
     }
@@ -767,7 +793,7 @@ $section_bg : #000;
       display:flex;
       flex-flow:column;
       gap:1.5rem;
-      @include respond-to(md) {
+      @include respond-to(lg) {
         max-width:1000px;
         margin:5rem auto 0;
       }
