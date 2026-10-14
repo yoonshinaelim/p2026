@@ -40,7 +40,7 @@ const Contact = () => {
     return (
         <main className="contact">
             <div className="title_box">
-                <h2 className="title">Contact</h2>
+                <h2 className="title">CONTACT</h2>
                 <p className="text">프로젝트에 대한 간단한 설명을 입력해 주세요.</p>
             </div>
             <div className="form_box">
