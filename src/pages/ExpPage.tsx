@@ -30,17 +30,19 @@ const ExpPage: React.FC = () => {
                 <h2 className="title1">{selectedItem.title1}</h2>
                 <h3 className="title2">{selectedItem.title2}</h3>
             </div>
-            <div className="txtBox">
-                <div className="flexBox">
-                    <h4 className="subtitle">{selectedItem.subtitle}</h4>
-                    <p className="description">{selectedItem.description}</p>
-                </div>
-                <div className="flexBox">
-                    <ul className="info">
-                        <li><strong>company</strong>{selectedItem.company}</li>
-                        <li><strong>launch</strong>{selectedItem.period}</li>
-                        <li><strong>part</strong>{selectedItem.part}</li>
-                    </ul>
+            <div className="txtBoxWrap">
+                <div className="txtBox">
+                    <div className="flexBox">
+                        <h4 className="subtitle">{selectedItem.subtitle}</h4>
+                        <p className="description">{selectedItem.description}</p>
+                    </div>
+                    <div className="flexBox">
+                        <ul className="info">
+                            <li><strong>company</strong>{selectedItem.company}</li>
+                            <li><strong>launch</strong>{selectedItem.period}</li>
+                            <li><strong>part</strong>{selectedItem.part}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             

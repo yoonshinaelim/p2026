@@ -1090,13 +1090,16 @@ $section_bg : #000;
       font-size:2rem;
     }
    }
+   .txtBoxWrap{
+      width:100%;
+      background:#fff;
+   }
    .txtBox {
     display:flex;
     flex-flow:column;
     padding:3rem 1rem;
     max-width:1360px;
     margin:0 auto;
-    background:#fff;
     @include respond-to(lg){
       padding:6.25rem 2.5rem;
       flex-flow:row;
